@@ -111,15 +111,13 @@ export const ProjectFrame: React.FC<ProjectFrameProps> = ({
               <div className="absolute inset-0 flex items-center justify-center p-6 bg-gradient-to-b from-[#061214] via-[#091D1E] to-[#081517]">
                 {/* Glow effect */}
                 <div className="absolute w-64 h-48 rounded-full bg-[#14AE5C]/20 blur-3xl pointer-events-none" />
-                <div className="bg-white/95 backdrop-blur-md px-8 py-5 rounded-2xl shadow-2xl border border-white/20 group-hover/img:scale-105 transition-transform duration-500 flex items-center justify-center z-0">
-                  {project.logoUrl && (
-                    <img
-                      src={project.logoUrl}
-                      alt={project.title}
-                      className="h-24 w-auto object-contain"
-                    />
-                  )}
-                </div>
+                {project.logoUrl && (
+                  <img
+                    src={project.logoUrl}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-contain object-center opacity-90 group-hover/img:scale-105 transition-transform duration-500 p-6"
+                  />
+                )}
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A141A] via-[#0A141A]/70 to-transparent pointer-events-none" />
 
