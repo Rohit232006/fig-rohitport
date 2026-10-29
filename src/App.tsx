@@ -44,6 +44,20 @@ export const App: React.FC = () => {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
+  // Control body overflow based on view mode:
+  // Canvas mode on desktop = prevent default body scroll so canvas pan/zoom takes over
+  // Linear mode (mobile) = allow natural vertical document scrolling
+  useEffect(() => {
+    if (viewMode === 'canvas') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [viewMode]);
+
   // Selected project
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -189,7 +203,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className={`w-screen flex flex-col bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] select-none font-sans ${viewMode === 'canvas' ? 'h-screen overflow-hidden' : 'min-h-screen overflow-x-hidden'}`}>
+    <div className={`w-full flex flex-col bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] font-sans ${viewMode === 'canvas' ? 'h-screen overflow-hidden select-none' : 'min-h-screen'}`}>
       
       {/* Top Application Bar */}
       <TopBar
@@ -201,14 +215,23 @@ export const App: React.FC = () => {
         onOpenAbout={() => setIsAboutOpen(true)}
         onOpenContact={() => setIsContactOpen(true)}
         onScrollToProjects={() => {
-          setViewMode('canvas');
-          if (projectsData.length > 0) {
-            setSelectedProject(projectsData[0]);
+          if (viewMode === 'linear') {
+            const el = document.getElementById('linear-projects');
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          } else {
+            if (projectsData.length > 0) {
+              setSelectedProject(projectsData[0]);
+            }
           }
         }}
         onScrollToHero={() => {
-          setViewMode('canvas');
-          setSelectedProject(null);
+          if (viewMode === 'linear') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            setSelectedProject(null);
+          }
         }}
         viewMode={viewMode}
         onToggleViewMode={() => setViewMode(viewMode === 'canvas' ? 'linear' : 'canvas')}

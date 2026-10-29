@@ -270,7 +270,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             }}
             className="text-left py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-[#2A2A2A] text-sm font-medium"
           >
-            ✦ Canvas Home
+            ✦ Home
           </button>
           <button
             onClick={() => {
@@ -279,7 +279,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             }}
             className="text-left py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-[#2A2A2A] text-sm font-medium flex items-center justify-between"
           >
-            <span>Projects Workspace</span>
+            <span>Projects & Case Studies</span>
             <span className="text-xs bg-[#0D99FF]/10 text-[#0D99FF] px-2 py-0.5 rounded-full">4</span>
           </button>
           <button
@@ -298,24 +298,26 @@ export const TopBar: React.FC<TopBarProps> = ({
             }}
             className="text-left py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-[#2A2A2A] text-sm font-medium"
           >
-            Get in Touch / Contact
+            Contact & Socials
           </button>
+
           <div className="pt-2 border-t border-gray-100 dark:border-[#333] flex items-center justify-between">
             <button
               onClick={() => {
                 onToggleViewMode();
                 setMobileMenuOpen(false);
               }}
-              className="text-xs text-[#0D99FF] font-medium"
+              className="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#0D99FF]/10 text-[#0D99FF] border border-[#0D99FF]/30 flex items-center gap-1.5"
             >
-              Toggle {viewMode === 'canvas' ? 'Linear Mode' : 'Canvas Mode'}
+              {viewMode === 'canvas' ? <Sliders size={12} /> : <Laptop size={12} />}
+              <span>{viewMode === 'canvas' ? 'Switch to Linear Mode' : 'Switch to Canvas Mode'}</span>
             </button>
             <button
               onClick={() => {
                 onToggleDarkMode();
                 setMobileMenuOpen(false);
               }}
-              className="text-xs text-gray-500 font-medium"
+              className="text-xs text-gray-500 font-medium px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#2A2A2A]"
             >
               {isDarkMode ? 'Light Canvas' : 'Dark Canvas'}
             </button>

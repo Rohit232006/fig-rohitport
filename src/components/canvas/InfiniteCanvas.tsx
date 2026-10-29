@@ -141,21 +141,27 @@ export const InfiniteCanvas: React.FC<InfiniteCanvasProps> = ({
     }
   };
 
-  // Touch support for mobile canvas panning
+  // Touch support for mobile canvas panning: only when touching background plane or with hand tool,
+  // without calling e.preventDefault() on normal taps or blocking cards
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const touchPanStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const isTouchPanningRef = useRef(false);
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     if (e.touches.length === 1) {
-      const touch = e.touches[0];
-      touchStartRef.current = { x: touch.clientX, y: touch.clientY };
-      touchPanStartRef.current = { ...pan };
+      const target = e.target as HTMLElement;
+      const isBg = target === containerRef.current || target.classList.contains('canvas-background-plane') || activeTool === 'hand';
+      if (isBg) {
+        isTouchPanningRef.current = true;
+        const touch = e.touches[0];
+        touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+        touchPanStartRef.current = { ...pan };
+      }
     }
-  }, [pan]);
+  }, [pan, activeTool]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (e.touches.length === 1 && touchStartRef.current) {
-      e.preventDefault();
+    if (isTouchPanningRef.current && e.touches.length === 1 && touchStartRef.current) {
       const touch = e.touches[0];
       const dx = touch.clientX - touchStartRef.current.x;
       const dy = touch.clientY - touchStartRef.current.y;
@@ -168,6 +174,7 @@ export const InfiniteCanvas: React.FC<InfiniteCanvasProps> = ({
 
   const handleTouchEnd = useCallback(() => {
     touchStartRef.current = null;
+    isTouchPanningRef.current = false;
   }, []);
 
   // Refs to keep the latest zoom/pan available inside the native wheel listener

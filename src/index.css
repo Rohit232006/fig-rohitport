@@ -14,21 +14,42 @@
     --canvas-bg: #18181B;
   }
 
+  html {
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
   body {
+    min-height: 100%;
     margin: 0;
     padding: 0;
     background-color: var(--canvas-bg);
-    overflow: hidden;
-    user-select: none;
-    -webkit-user-select: none;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: clip;
+    overflow-y: auto;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Mobile: allow vertical scrolling */
+  #root {
+    min-height: 100%;
+  }
+
   @media (max-width: 767px) {
     body {
-      overflow-y: auto;
-      overflow-x: hidden;
+      height: auto;
+      position: static;
+      touch-action: pan-y;
+    }
+
+    main,
+    .page-container,
+    .portfolio-container {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
     }
   }
 }

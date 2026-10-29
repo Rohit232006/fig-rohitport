@@ -17,11 +17,11 @@ export const LinearPortfolioView: React.FC<LinearPortfolioViewProps> = ({
   onOpenContact,
 }) => {
   return (
-    <div className="w-full bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] p-4 sm:p-8 md:p-12 transition-colors select-text pb-16">
+    <div className="w-full portfolio-container bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] p-4 sm:p-8 md:p-12 transition-colors select-text pb-24">
       <div className="max-w-5xl mx-auto space-y-16">
         
         {/* Hero Banner in Linear Mode */}
-        <section className="bg-white dark:bg-[#202023] border border-[#E5E7EB] dark:border-[#2E2E2E] rounded-2xl p-6 sm:p-10 shadow-figma-card relative overflow-hidden">
+        <section id="linear-hero" className="bg-white dark:bg-[#202023] border border-[#E5E7EB] dark:border-[#2E2E2E] rounded-2xl p-6 sm:p-10 shadow-figma-card relative overflow-hidden">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-[#14AE5C] pulse-badge" />
             <span className="text-xs font-semibold text-[#14AE5C]">Open to Opportunities</span>
@@ -55,7 +55,7 @@ export const LinearPortfolioView: React.FC<LinearPortfolioViewProps> = ({
         </section>
 
         {/* Projects Grid */}
-        <section className="space-y-6">
+        <section id="linear-projects" className="space-y-6 scroll-mt-6">
           <div className="flex items-center justify-between pb-3 border-b border-gray-200 dark:border-zinc-800">
             <div>
               <h2 className="text-2xl font-bold text-[#1E1E1E] dark:text-white">
