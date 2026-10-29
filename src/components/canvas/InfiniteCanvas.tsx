@@ -141,35 +141,78 @@ export const InfiniteCanvas: React.FC<InfiniteCanvasProps> = ({
     }
   };
 
-  // Smooth wheel zoom and pan
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
+  // Touch support for mobile canvas panning
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const touchPanStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
-    if (e.ctrlKey || e.metaKey) {
-      // Zoom
-      const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
-      const newZoom = Math.min(Math.max(zoom * zoomFactor, 0.35), 2.0);
-
-      // Zoom towards mouse pointer
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const newPanX = mouseX - (mouseX - pan.x) * (newZoom / zoom);
-      const newPanY = mouseY - (mouseY - pan.y) * (newZoom / zoom);
-
-      onZoomChange(newZoom);
-      setPan({ x: newPanX, y: newPanY });
-    } else {
-      // Two-finger trackpad or wheel pan
-      setPan((prev) => ({
-        x: prev.x - e.deltaX * 1.2,
-        y: prev.y - e.deltaY * 1.2,
-      }));
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+      touchPanStartRef.current = { ...pan };
     }
-  };
+  }, [pan]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 1 && touchStartRef.current) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const dx = touch.clientX - touchStartRef.current.x;
+      const dy = touch.clientY - touchStartRef.current.y;
+      setPan({
+        x: touchPanStartRef.current.x + dx,
+        y: touchPanStartRef.current.y + dy,
+      });
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    touchStartRef.current = null;
+  }, []);
+
+  // Refs to keep the latest zoom/pan available inside the native wheel listener
+  const zoomRef = useRef(zoom);
+  const panRef = useRef(pan);
+  useEffect(() => { zoomRef.current = zoom; }, [zoom]);
+  useEffect(() => { panRef.current = pan; }, [pan]);
+
+  // Attach wheel handler as non-passive so preventDefault() actually works
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+
+      const currentZoom = zoomRef.current;
+      const currentPan = panRef.current;
+
+      if (e.ctrlKey || e.metaKey) {
+        // Zoom towards mouse pointer
+        const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
+        const newZoom = Math.min(Math.max(currentZoom * zoomFactor, 0.35), 2.0);
+
+        const rect = el.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        const newPanX = mouseX - (mouseX - currentPan.x) * (newZoom / currentZoom);
+        const newPanY = mouseY - (mouseY - currentPan.y) * (newZoom / currentZoom);
+
+        onZoomChange(newZoom);
+        setPan({ x: newPanX, y: newPanY });
+      } else {
+        // Regular scroll / two-finger trackpad → pan the canvas
+        setPan((prev) => ({
+          x: prev.x - e.deltaX * 1.2,
+          y: prev.y - e.deltaY * 1.2,
+        }));
+      }
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => el.removeEventListener('wheel', handleWheel);
+  }, [onZoomChange]);
 
   // Programmatic pan to projects frame
   const handlePanToProjects = () => {
@@ -191,7 +234,9 @@ export const InfiniteCanvas: React.FC<InfiniteCanvasProps> = ({
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       className={`relative w-full h-[calc(100vh-3rem)] overflow-hidden figma-canvas-grid ${
         activeTool === 'hand'
           ? 'cursor-canvas-hand'
