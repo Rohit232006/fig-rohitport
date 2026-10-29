@@ -26,8 +26,23 @@ export const App: React.FC = () => {
     }
   }, [isDarkMode]);
 
-  // View mode: 'canvas' or 'linear'
-  const [viewMode, setViewMode] = useState<'canvas' | 'linear'>('canvas');
+  // Detect mobile on mount
+  const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 768;
+
+  // View mode: 'canvas' or 'linear' — default to linear on mobile
+  const [viewMode, setViewMode] = useState<'canvas' | 'linear'>(() =>
+    isMobile() ? 'linear' : 'canvas'
+  );
+
+  // Auto-switch view mode when viewport resizes
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e: MediaQueryListEvent) => {
+      setViewMode(e.matches ? 'linear' : 'canvas');
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   // Selected project
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -174,7 +189,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden flex flex-col bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] select-none font-sans">
+    <div className={`w-screen flex flex-col bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] select-none font-sans ${viewMode === 'canvas' ? 'h-screen overflow-hidden' : 'min-h-screen overflow-x-hidden'}`}>
       
       {/* Top Application Bar */}
       <TopBar
@@ -201,7 +216,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Workspace Body */}
-      <div className="flex-1 relative overflow-hidden">
+      <div className={`flex-1 relative ${viewMode === 'canvas' ? 'overflow-hidden' : 'overflow-visible'}`}>
         {viewMode === 'canvas' ? (
           <>
             {/* Floating Left Toolbar */}

@@ -17,7 +17,7 @@ export const LinearPortfolioView: React.FC<LinearPortfolioViewProps> = ({
   onOpenContact,
 }) => {
   return (
-    <div className="w-full min-h-[calc(100vh-3rem)] overflow-y-auto bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] p-4 sm:p-8 md:p-12 transition-colors select-text">
+    <div className="w-full bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] p-4 sm:p-8 md:p-12 transition-colors select-text pb-16">
       <div className="max-w-5xl mx-auto space-y-16">
         
         {/* Hero Banner in Linear Mode */}

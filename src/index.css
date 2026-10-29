@@ -23,6 +23,14 @@
     -webkit-user-select: none;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
+
+  /* Mobile: allow vertical scrolling */
+  @media (max-width: 767px) {
+    body {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
 }
 
 /* Figma Canvas Grid */
