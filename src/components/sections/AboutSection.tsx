@@ -126,7 +126,7 @@ export const AboutSection: React.FC = () => {
                   <span>Experience & Leadership</span>
                 </div>
                 <span className="text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-zinc-800 px-2 py-0.5 rounded">
-                  2023 — Present
+                  2024 — Present
                 </span>
               </div>
 
@@ -135,13 +135,13 @@ export const AboutSection: React.FC = () => {
                 <div className="border-l-2 border-[#0D99FF] pl-3.5 space-y-0.5">
                   <div className="flex items-center justify-between">
                     <h4 className="font-bold text-sm text-gray-900 dark:text-white">
-                      Lead UI/UX & Creative Designer
+                      Lead UI/UX Designer
                     </h4>
-                    <span className="text-[10px] font-mono text-[#0D99FF] font-semibold">2023 — Present</span>
+                    <span className="text-[10px] font-mono text-[#0D99FF] font-semibold">2026 — Present</span>
                   </div>
-                  <p className="text-xs font-medium text-[#0D99FF]">PixelLoom & Freelance</p>
+                  <p className="text-xs font-medium text-[#0D99FF]">PixelLoom & Product Initiatives</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 pt-0.5">
-                    End-to-end design systems, responsive client websites, and brand assets.
+                    End-to-end design systems, responsive SaaS platforms, and user experience architecture.
                   </p>
                 </div>
 
@@ -149,13 +149,13 @@ export const AboutSection: React.FC = () => {
                 <div className="border-l-2 border-[#14AE5C] pl-3.5 space-y-0.5">
                   <div className="flex items-center justify-between">
                     <h4 className="font-bold text-sm text-gray-900 dark:text-white">
-                      Design & Tech Coordinator
+                      Overall College Event Design, Media & Event Coordinator
                     </h4>
-                    <span className="text-[10px] font-mono text-gray-400">2024 — 2025</span>
+                    <span className="text-[10px] font-mono text-gray-400">2024 — 2026</span>
                   </div>
-                  <p className="text-xs font-medium text-[#14AE5C]">CSBS Department Symposium</p>
+                  <p className="text-xs font-medium text-[#14AE5C]">College Technical & Cultural Initiatives</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 pt-0.5">
-                    Directed event branding, participant interfaces, and presentation decks.
+                    Directed overall event design, multimedia branding, digital collaterals, and full event coordination.
                   </p>
                 </div>
               </div>

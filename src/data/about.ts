@@ -78,17 +78,17 @@ export const aboutData = {
   ] as SkillGroup[],
   experiences: [
     {
-      role: 'Lead UI/UX & Creative Designer',
-      organization: 'PixelLoom & College Design Initiatives',
-      period: '2023 — Present',
-      description: 'Directed end-to-end design systems, branding collaterals, and interactive web experiences for tech student initiatives and freelance clients.',
+      role: 'Lead UI/UX Designer',
+      organization: 'PixelLoom & Product Initiatives',
+      period: '2026 — Present',
+      description: 'Directing end-to-end design systems, responsive SaaS platforms, design tokens, and user experience architecture.',
       type: 'design',
     },
     {
-      role: 'Student Organizer & Technical Coordinator',
-      organization: 'Department of Computer Science & Business Systems',
-      period: '2024 — 2025',
-      description: 'Organized national level technical symposiums, hackathons, and design workshops. Managed visual branding, participant workflows, and sponsor presentations.',
+      role: 'Overall College Event Design, Media & Event Coordinator',
+      organization: 'College Technical & Cultural Initiatives',
+      period: '2024 — 2026',
+      description: 'Directed overall event design, multimedia branding, print & digital collaterals, and full event coordination across college initiatives.',
       type: 'leadership',
     },
     {
