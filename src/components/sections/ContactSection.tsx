@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { 
   Mail, 
   Copy, 
@@ -16,6 +17,16 @@ import confetti from 'canvas-confetti';
 import { aboutData } from '../../data/about';
 
 export const ContactSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start']
+  });
+
+  const leftY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [15, -15]);
+  const rightY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-10, 10]);
+
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -67,7 +78,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 border-b border-gray-200/80 dark:border-zinc-800/80 bg-white/40 dark:bg-zinc-950/30">
+    <section ref={sectionRef} id="contact" className="py-16 sm:py-24 border-b border-gray-200/80 dark:border-zinc-800/80 bg-white/40 dark:bg-zinc-950/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
@@ -87,8 +98,11 @@ export const ContactSection: React.FC = () => {
         {/* 2-Column Grid: Contact Methods + Working Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left Column: Direct Links & Cards */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left Column: Direct Links & Cards with Parallax Float */}
+          <motion.div 
+            style={{ y: leftY }}
+            className="lg:col-span-5 space-y-6"
+          >
             
             {/* Email Direct Card */}
             <div className="bg-white dark:bg-[#202023] p-6 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-figma-card space-y-4">
@@ -198,10 +212,13 @@ export const ContactSection: React.FC = () => {
               </p>
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* Right Column: Working Contact Form */}
-          <div className="lg:col-span-7">
+          {/* Right Column: Working Contact Form with Parallax */}
+          <motion.div 
+            style={{ y: rightY }}
+            className="lg:col-span-7"
+          >
             <div className="bg-white dark:bg-[#202023] p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-figma-card">
               
               {isSubmitted ? (
@@ -336,7 +353,7 @@ export const ContactSection: React.FC = () => {
               )}
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

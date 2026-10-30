@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { 
   ArrowDown, 
   FileText, 
@@ -21,14 +22,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenResume,
   onContactClick,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+
+  // Subtle, high-performance parallax transforms
+  const contentY = useTransform(scrollY, [0, 600], [0, shouldReduceMotion ? 0 : -35]);
+  const profileCardY = useTransform(scrollY, [0, 600], [0, shouldReduceMotion ? 0 : 45]);
+  const bgGlowY = useTransform(scrollY, [0, 600], [0, shouldReduceMotion ? 0 : -80]);
+
   return (
     <section 
       id="home" 
       className="relative pt-8 sm:pt-16 pb-16 sm:pb-24 border-b border-gray-200/80 dark:border-zinc-800/80 overflow-hidden figma-canvas-grid"
     >
-      {/* Ambient background glow accents */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#0D99FF]/10 dark:bg-[#0D99FF]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-[#9747FF]/10 dark:bg-[#9747FF]/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Ambient background glow accents with parallax */}
+      <motion.div 
+        style={{ y: bgGlowY }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#0D99FF]/10 dark:bg-[#0D99FF]/5 rounded-full blur-3xl pointer-events-none" 
+      />
+      <motion.div 
+        style={{ y: bgGlowY }}
+        className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-[#9747FF]/10 dark:bg-[#9747FF]/5 rounded-full blur-3xl pointer-events-none" 
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -50,8 +65,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Hero Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Heading, Bio & Actions */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Left Column: Heading, Bio & Actions with Parallax Float */}
+          <motion.div 
+            style={{ y: contentY }}
+            className="lg:col-span-7 space-y-6"
+          >
             
             {/* Status Pills */}
             <div className="flex flex-wrap items-center gap-2">
@@ -137,10 +155,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* Right Column: Figma-Styled Profile Frame */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Right Column: Figma-Styled Profile Frame with Opposing Parallax */}
+          <motion.div 
+            style={{ y: profileCardY }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
             <div className="relative w-full max-w-[360px] sm:max-w-[400px]">
               
               {/* Profile Card Container with Figma styling */}
@@ -206,7 +227,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

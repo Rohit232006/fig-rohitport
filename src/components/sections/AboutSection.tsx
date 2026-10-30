@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { 
   User, 
   Briefcase, 
@@ -16,8 +17,18 @@ import {
 import { aboutData } from '../../data/about';
 
 export const AboutSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start']
+  });
+
+  const leftColY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-15, 15]);
+  const rightColY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [15, -15]);
+
   return (
-    <section id="about" className="py-16 sm:py-24 border-b border-gray-200/80 dark:border-zinc-800/80 relative">
+    <section ref={sectionRef} id="about" className="py-16 sm:py-24 border-b border-gray-200/80 dark:border-zinc-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Section Header */}
@@ -44,8 +55,11 @@ export const AboutSection: React.FC = () => {
         {/* Bento Grid: Clean, Uncongested, High Visual Hierarchy */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
-          {/* Left Column (7 cols): Concise Bio + 3 Focus Pillars */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+          {/* Left Column (7 cols): Concise Bio + 3 Focus Pillars with Parallax Float */}
+          <motion.div 
+            style={{ y: leftColY }}
+            className="lg:col-span-7 flex flex-col justify-between space-y-6"
+          >
             
             {/* Bio Card */}
             <div className="bg-white dark:bg-[#202023] p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-figma-card relative overflow-hidden space-y-4">
@@ -113,10 +127,13 @@ export const AboutSection: React.FC = () => {
 
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* Right Column (5 cols): Concise Experience & Education */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+          {/* Right Column (5 cols): Concise Experience & Education with Opposing Parallax Float */}
+          <motion.div 
+            style={{ y: rightColY }}
+            className="lg:col-span-5 flex flex-col justify-between space-y-6"
+          >
             
             {/* Experience Card */}
             <div className="bg-white dark:bg-[#202023] p-6 rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-figma-card flex-1 flex flex-col justify-between space-y-5">
@@ -180,7 +197,7 @@ export const AboutSection: React.FC = () => {
 
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 

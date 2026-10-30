@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TopBar } from './components/workspace/TopBar';
+import { ParallaxBackground } from './components/parallax/ParallaxBackground';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -74,8 +75,11 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] font-sans antialiased selection:bg-[#0D99FF]/20 selection:text-[#0D99FF] flex flex-col transition-colors duration-150">
+    <div className="w-full min-h-screen bg-[#F7F8FA] dark:bg-[#18181B] text-[#1E1E1E] dark:text-[#E0E0E0] font-sans antialiased selection:bg-[#0D99FF]/20 selection:text-[#0D99FF] flex flex-col transition-colors duration-150 relative">
       
+      {/* Global Ambient Parallax Background Layer */}
+      <ParallaxBackground />
+
       {/* 1. Minimal Sticky Navigation */}
       <TopBar
         isDarkMode={isDarkMode}

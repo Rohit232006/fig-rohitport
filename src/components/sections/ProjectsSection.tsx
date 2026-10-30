@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { 
   ArrowUpRight, 
   ExternalLink, 
@@ -18,6 +19,132 @@ interface ProjectsSectionProps {
   projects: Project[];
   onOpenCaseStudy: (project: Project) => void;
 }
+
+// Parallax Project Card Component
+const ParallaxProjectCard: React.FC<{
+  project: Project;
+  index: number;
+  onOpenCaseStudy: (project: Project) => void;
+  renderVisualPreview: (project: Project) => React.ReactNode;
+}> = ({ project, index, onOpenCaseStudy, renderVisualPreview }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start end', 'end start']
+  });
+
+  // Staggered column parallax offset: even columns move upward, odd columns offset downward
+  const isOdd = index % 2 === 1;
+  const y = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    shouldReduceMotion ? [0, 0] : isOdd ? [20, -20] : [-15, 15]
+  );
+
+  return (
+    <motion.div
+      ref={cardRef}
+      style={{ y }}
+      onClick={() => onOpenCaseStudy(project)}
+      className="bg-white dark:bg-[#202023] border border-gray-200 dark:border-zinc-800 hover:border-[#0D99FF] dark:hover:border-[#0D99FF] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-figma-card hover:shadow-figma-floating transition-all duration-300 cursor-pointer group flex flex-col justify-between relative overflow-hidden"
+    >
+      {/* Figma Frame Topbar */}
+      <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-gray-100 dark:border-zinc-800 text-xs">
+        <div className="flex items-center gap-2 overflow-hidden">
+          <span 
+            className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
+            style={{ backgroundColor: project.accentColor }} 
+          />
+          <span className="font-mono font-semibold text-xs text-gray-900 dark:text-white truncate">
+            #{project.number} · {project.title.split('—')[0].trim()}
+          </span>
+        </div>
+
+        <span className="text-[10px] font-mono text-[#0D99FF] bg-[#0D99FF]/10 px-2 py-0.5 rounded font-medium">
+          {project.status}
+        </span>
+      </div>
+
+      {/* Visual Preview Showcase */}
+      <div className="mb-5">
+        {renderVisualPreview(project)}
+      </div>
+
+      {/* Project Info & Description */}
+      <div className="space-y-4 flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-xs font-semibold text-[#0D99FF]">
+              {project.category}
+            </span>
+          </div>
+
+          <h3 className="text-xl sm:text-2xl font-bold text-[#1E1E1E] dark:text-white group-hover:text-[#0D99FF] transition-colors flex items-center justify-between">
+            <span>{project.title}</span>
+            <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#0D99FF]" />
+          </h3>
+
+          {project.tagline && (
+            <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 italic mt-1 line-clamp-1">
+              “{project.tagline}”
+            </p>
+          )}
+
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-2.5 line-clamp-2">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Tech stack chips */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-2">
+          {project.techStack.slice(0, 4).map((tech) => (
+            <span
+              key={tech}
+              className="text-[10px] font-mono bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md"
+            >
+              {tech}
+            </span>
+          ))}
+          {project.techStack.length > 4 && (
+            <span className="text-[10px] font-mono text-gray-400 bg-gray-50 dark:bg-zinc-900 px-2 py-1 rounded-md">
+              +{project.techStack.length - 4} more
+            </span>
+          )}
+        </div>
+
+        {/* Actions Bar */}
+        <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-100 dark:border-zinc-800/80">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenCaseStudy(project);
+            }}
+            className="bg-[#0D99FF] hover:bg-[#0085EB] text-white px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer active:scale-95"
+          >
+            <span>Read Case Study</span>
+            <ChevronRight size={14} />
+          </button>
+
+          {project.behanceUrl && (
+            <a
+              href={project.behanceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-200 border border-gray-200/80 dark:border-zinc-700 px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            >
+              <span className="font-bold text-[10px] bg-[#0057FF] text-white px-1 rounded-xs">Bē</span>
+              <span>Behance</span>
+              <ExternalLink size={12} className="text-gray-400" />
+            </a>
+          )}
+        </div>
+      </div>
+
+    </motion.div>
+  );
+};
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   projects,
@@ -229,111 +356,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           </div>
         </div>
 
-        {/* Balanced 2x2 Symmetrical Grid for Proper Fitting */}
+        {/* Balanced 2x2 Symmetrical Grid with Staggered Parallax Fitting */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {projects.map((project) => {
-            return (
-              <div
-                key={project.id}
-                onClick={() => onOpenCaseStudy(project)}
-                className="bg-white dark:bg-[#202023] border border-gray-200 dark:border-zinc-800 hover:border-[#0D99FF] dark:hover:border-[#0D99FF] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-figma-card hover:shadow-figma-floating transition-all duration-300 cursor-pointer group flex flex-col justify-between relative overflow-hidden"
-              >
-                {/* Figma Frame Topbar */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-gray-100 dark:border-zinc-800 text-xs">
-                  <div className="flex items-center gap-2 overflow-hidden">
-                    <span 
-                      className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
-                      style={{ backgroundColor: project.accentColor }} 
-                    />
-                    <span className="font-mono font-semibold text-xs text-gray-900 dark:text-white truncate">
-                      #{project.number} · {project.title.split('—')[0].trim()}
-                    </span>
-                  </div>
-
-                  <span className="text-[10px] font-mono text-[#0D99FF] bg-[#0D99FF]/10 px-2 py-0.5 rounded font-medium">
-                    {project.status}
-                  </span>
-                </div>
-
-                {/* Visual Preview Showcase */}
-                <div className="mb-5">
-                  {renderVisualPreview(project)}
-                </div>
-
-                {/* Project Info & Description */}
-                <div className="space-y-4 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-xs font-semibold text-[#0D99FF]">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#1E1E1E] dark:text-white group-hover:text-[#0D99FF] transition-colors flex items-center justify-between">
-                      <span>{project.title}</span>
-                      <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#0D99FF]" />
-                    </h3>
-
-                    {project.tagline && (
-                      <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 italic mt-1 line-clamp-1">
-                        “{project.tagline}”
-                      </p>
-                    )}
-
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-2.5 line-clamp-2">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Tech stack chips */}
-                  <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                    {project.techStack.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[10px] font-mono bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.techStack.length > 4 && (
-                      <span className="text-[10px] font-mono text-gray-400 bg-gray-50 dark:bg-zinc-900 px-2 py-1 rounded-md">
-                        +{project.techStack.length - 4} more
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Actions Bar */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-100 dark:border-zinc-800/80">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onOpenCaseStudy(project);
-                      }}
-                      className="bg-[#0D99FF] hover:bg-[#0085EB] text-white px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer active:scale-95"
-                    >
-                      <span>Read Case Study</span>
-                      <ChevronRight size={14} />
-                    </button>
-
-                    {project.behanceUrl && (
-                      <a
-                        href={project.behanceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-200 border border-gray-200/80 dark:border-zinc-700 px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
-                      >
-                        <span className="font-bold text-[10px] bg-[#0057FF] text-white px-1 rounded-xs">Bē</span>
-                        <span>Behance</span>
-                        <ExternalLink size={12} className="text-gray-400" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-              </div>
-            );
-          })}
+          {projects.map((project, index) => (
+            <ParallaxProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              onOpenCaseStudy={onOpenCaseStudy}
+              renderVisualPreview={renderVisualPreview}
+            />
+          ))}
         </div>
 
       </div>
