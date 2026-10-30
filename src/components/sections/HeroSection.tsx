@@ -119,9 +119,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="pt-4 border-t border-gray-200/60 dark:border-zinc-800/60 grid grid-cols-3 gap-3 max-w-xl">
               <div>
                 <span className="text-xl sm:text-2xl font-bold font-mono text-[#1E1E1E] dark:text-white block">
-                  05+
+                  04
                 </span>
-                <span className="text-xs text-gray-500">Case Studies & Audits</span>
+                <span className="text-xs text-gray-500">Selected Case Studies</span>
               </div>
               <div>
                 <span className="text-xl sm:text-2xl font-bold font-mono text-[#0D99FF] block">
@@ -131,9 +131,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div>
                 <span className="text-xl sm:text-2xl font-bold font-mono text-[#14AE5C] block">
-                  CSBS
+                  2026
                 </span>
-                <span className="text-xs text-gray-500">Engineering Grounding</span>
+                <span className="text-xs text-gray-500">CSBS Graduating</span>
               </div>
             </div>
 

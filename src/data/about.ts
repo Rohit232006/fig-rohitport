@@ -87,7 +87,7 @@ export const aboutData = {
     {
       role: 'Student Organizer & Technical Coordinator',
       organization: 'Department of Computer Science & Business Systems',
-      period: '2023 — 2024',
+      period: '2024 — 2025',
       description: 'Organized national level technical symposiums, hackathons, and design workshops. Managed visual branding, participant workflows, and sponsor presentations.',
       type: 'leadership',
     },
@@ -95,7 +95,7 @@ export const aboutData = {
       role: 'Computer Science and Business Systems Scholar',
       organization: 'Undergraduate Program',
       period: '2022 — 2026',
-      description: 'Coursework in Software Engineering, Object-Oriented Programming (Java), Database Management, UX Psychology, Financial Management, and Business Systems.',
+      description: 'Class of 2026. Coursework in Software Engineering, Object-Oriented Programming (Java), Database Management, UX Psychology, Financial Management, and Business Systems.',
       type: 'academic',
     },
   ] as ExperienceItem[],

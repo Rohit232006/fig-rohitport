@@ -126,7 +126,7 @@ export const AboutSection: React.FC = () => {
                   <span>Experience & Leadership</span>
                 </div>
                 <span className="text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-zinc-800 px-2 py-0.5 rounded">
-                  2022 — Present
+                  2023 — Present
                 </span>
               </div>
 
@@ -137,7 +137,7 @@ export const AboutSection: React.FC = () => {
                     <h4 className="font-bold text-sm text-gray-900 dark:text-white">
                       Lead UI/UX & Creative Designer
                     </h4>
-                    <span className="text-[10px] font-mono text-gray-400">2023 — Present</span>
+                    <span className="text-[10px] font-mono text-[#0D99FF] font-semibold">2023 — Present</span>
                   </div>
                   <p className="text-xs font-medium text-[#0D99FF]">PixelLoom & Freelance</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 pt-0.5">
@@ -151,7 +151,7 @@ export const AboutSection: React.FC = () => {
                     <h4 className="font-bold text-sm text-gray-900 dark:text-white">
                       Design & Tech Coordinator
                     </h4>
-                    <span className="text-[10px] font-mono text-gray-400">2023 — 2024</span>
+                    <span className="text-[10px] font-mono text-gray-400">2024 — 2025</span>
                   </div>
                   <p className="text-xs font-medium text-[#14AE5C]">CSBS Department Symposium</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 pt-0.5">
@@ -169,7 +169,7 @@ export const AboutSection: React.FC = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5">
                       <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 font-semibold">B.Tech CSBS</span>
-                      <span className="text-[10px] text-gray-400">• 2022 — 2026</span>
+                      <span className="text-[10px] text-gray-400">• Class of 2026 (Graduating)</span>
                     </div>
                     <p className="text-xs font-medium text-gray-800 dark:text-gray-200 truncate">
                       Computer Science & Business Systems
