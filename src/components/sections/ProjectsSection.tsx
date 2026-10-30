@@ -159,39 +159,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           </div>
         );
 
-      case 'swiggy':
-        return (
-          <div className="w-full h-56 sm:h-72 rounded-xl bg-zinc-950 p-4 border border-orange-950/60 flex flex-col justify-between relative overflow-hidden group/img">
-            <div className="grid grid-cols-2 gap-3 z-10">
-              <div className="bg-[#211812] border border-orange-900/40 p-2.5 sm:p-3 rounded-lg">
-                <span className="text-[10px] font-mono text-[#FC8019] block">LAW 01 / HICK’S LAW</span>
-                <h4 className="text-xs font-bold text-white mt-1">Categorical Chunking</h4>
-                <p className="text-[10px] text-zinc-400 mt-1 line-clamp-2">5 sticky category groups cut decision latency by 3.8x.</p>
-              </div>
-              <div className="bg-[#211812] border border-orange-900/40 p-2.5 sm:p-3 rounded-lg">
-                <span className="text-[10px] font-mono text-[#FC8019] block">LAW 02 / FITTS’S LAW</span>
-                <h4 className="text-xs font-bold text-white mt-1">Thumb-Zone Ergonomics</h4>
-                <p className="text-[10px] text-zinc-400 mt-1 line-clamp-2">Bottom 40% thumb arc speeds up checkout by 52%.</p>
-              </div>
-            </div>
-
-            <div className="relative z-10 grid grid-cols-3 gap-2">
-              <div className="bg-zinc-900/90 p-2 rounded border border-zinc-800 text-center">
-                <span className="text-[10px] font-bold text-orange-400 block font-mono">Miller's 7±2</span>
-                <span className="text-[9px] text-zinc-400">Curated Clusters</span>
-              </div>
-              <div className="bg-zinc-900/90 p-2 rounded border border-zinc-800 text-center">
-                <span className="text-[10px] font-bold text-emerald-400 block font-mono">Goal Gradient</span>
-                <span className="text-[9px] text-zinc-400">Micro-Milestone</span>
-              </div>
-              <div className="bg-zinc-900/90 p-2 rounded border border-zinc-800 text-center">
-                <span className="text-[10px] font-bold text-amber-400 block font-mono">Status Quo</span>
-                <span className="text-[9px] text-zinc-400">Smart Defaults</span>
-              </div>
-            </div>
-          </div>
-        );
-
       default:
         return null;
     }
@@ -206,18 +173,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           <div>
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#0D99FF]/10 text-[#0D99FF] text-xs font-mono font-medium mb-3">
               <Layers size={13} />
-              <span>01 — 05 / Selected Projects</span>
+              <span>01 — 04 / Selected Projects</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1E1E1E] dark:text-white">
               Featured Case Studies & Work
             </h2>
             <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
-              Exploring SaaS product design, responsive web experiences, autonomous AI interfaces, and cognitive UX research.
+              Exploring SaaS product design, responsive web experiences, autonomous AI interfaces, and consumer logistics flows.
             </p>
           </div>
 
           <div className="text-xs font-mono text-gray-500 bg-gray-100 dark:bg-zinc-800 px-3 py-1.5 rounded-lg whitespace-nowrap self-start sm:self-auto">
-            <span>5 In-Depth Projects</span>
+            <span>4 In-Depth Projects</span>
           </div>
         </div>
 
@@ -335,3 +302,4 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     </section>
   );
 };
+

@@ -70,7 +70,7 @@ export interface Project {
   accentColor: string;
   logoUrl?: string;
   behanceUrl?: string;
-  previewType: 'agenticos' | 'lastmile' | 'pharmaflow' | 'fitstart' | 'swiggy';
+  previewType: 'agenticos' | 'lastmile' | 'pharmaflow' | 'fitstart';
   caseStudy: CaseStudyData;
 }
 
