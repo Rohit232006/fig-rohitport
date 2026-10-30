@@ -2,38 +2,26 @@ import React from 'react';
 import { 
   Palette, 
   Code2, 
-  Sparkles, 
   Layers, 
   Wrench,
-  CheckCircle2
+  CheckCircle2,
+  BarChart3
 } from 'lucide-react';
 import {
   FigmaIcon,
   PhotoshopIcon,
   IllustratorIcon,
-  AfterEffectsIcon,
   PremiereProIcon,
   Html5Icon,
   Css3Icon,
   JavaScriptIcon,
-  ReactIcon,
-  NodejsIcon,
   JavaIcon,
-  PythonIcon,
-  CppIcon,
-  SqlIcon,
-  MongoDbIcon,
+  GA4Icon,
+  HotjarIcon,
   DaVinciResolveIcon,
   CapCutIcon,
   WixIcon,
 } from '../icons/ToolIcons';
-
-interface ToolItem {
-  name: string;
-  category: string;
-  icon: React.FC<{ className?: string }>;
-  tagline?: string;
-}
 
 export const SkillsSection: React.FC = () => {
   const categories = [
@@ -48,28 +36,33 @@ export const SkillsSection: React.FC = () => {
         { name: 'Figma', category: 'design', icon: FigmaIcon },
         { name: 'Adobe Photoshop', category: 'design', icon: PhotoshopIcon },
         { name: 'Adobe Illustrator', category: 'design', icon: IllustratorIcon },
-        { name: 'Adobe After Effects', category: 'design', icon: AfterEffectsIcon },
         { name: 'Adobe Premiere Pro', category: 'design', icon: PremiereProIcon },
       ],
     },
     {
       id: 'development',
       title: 'Development',
-      badge: 'Frontend & Architecture',
+      badge: 'Frontend & Logic',
       accentColor: '#14AE5C',
       icon: <Code2 size={18} className="text-[#14AE5C]" />,
-      description: 'Languages, modern frameworks, and database architectures for translating designs into responsive code.',
+      description: 'Core web standards and programming fundamentals for translating design ideas into functional interfaces.',
       tools: [
         { name: 'HTML5', category: 'development', icon: Html5Icon },
         { name: 'CSS3', category: 'development', icon: Css3Icon },
         { name: 'JavaScript', category: 'development', icon: JavaScriptIcon },
-        { name: 'React', category: 'development', icon: ReactIcon },
-        { name: 'Node.js', category: 'development', icon: NodejsIcon },
         { name: 'Java', category: 'development', icon: JavaIcon },
-        { name: 'Python', category: 'development', icon: PythonIcon },
-        { name: 'C++', category: 'development', icon: CppIcon },
-        { name: 'SQL', category: 'development', icon: SqlIcon },
-        { name: 'MongoDB', category: 'development', icon: MongoDbIcon },
+      ],
+    },
+    {
+      id: 'analytics',
+      title: 'UX Analytics & Research',
+      badge: 'Behavior & Funnels',
+      accentColor: '#FF6F00',
+      icon: <BarChart3 size={18} className="text-[#FF6F00]" />,
+      description: 'Quantitative tracking, behavioral funnels, and qualitative session heatmaps to inform data-driven product decisions.',
+      tools: [
+        { name: 'GA4', category: 'analytics', icon: GA4Icon },
+        { name: 'Hotjar', category: 'analytics', icon: HotjarIcon },
       ],
     },
     {
@@ -102,13 +95,13 @@ export const SkillsSection: React.FC = () => {
               Tools & Technologies
             </h2>
             <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
-              Recognizable application and engineering logos across interface design, code architecture, and creative multimedia.
+              Recognizable application and engineering logos across interface design, code architecture, behavioral analytics, and creative multimedia.
             </p>
           </div>
 
           <div className="inline-flex items-center gap-2 text-xs font-mono text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-zinc-800/90 px-3 py-1.5 rounded-lg whitespace-nowrap self-start sm:self-auto border border-gray-200/60 dark:border-zinc-700/60">
             <CheckCircle2 size={13} className="text-[#14AE5C]" />
-            <span>Official Brand Logos • 18 Applications</span>
+            <span>Official Brand Logos • 13 Applications</span>
           </div>
         </div>
 

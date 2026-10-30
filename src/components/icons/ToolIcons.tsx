@@ -367,3 +367,33 @@ export const WixIcon: React.FC<IconProps> = ({ className = "w-10 h-10" }) => (
     </text>
   </svg>
 );
+
+// 19. Google Analytics 4 (GA4) - Official Bar Emblem
+export const GA4Icon: React.FC<IconProps> = ({ className = "w-10 h-10" }) => (
+  <svg viewBox="0 0 48 48" className={className} fill="none" aria-label="Google Analytics 4">
+    <rect width="48" height="48" rx="10" fill="#F8F9FA" className="dark:fill-[#27272A]" />
+    {/* Left baseline dot */}
+    <circle cx="13" cy="35" r="4.5" fill="#E37400" />
+    {/* Center pillar */}
+    <rect x="20" y="19" width="8" height="21" rx="4" fill="#F9AB00" />
+    {/* Right tall pillar */}
+    <rect x="30" y="8" width="8" height="32" rx="4" fill="#E37400" />
+  </svg>
+);
+
+// 20. Hotjar - Official Flame Mark
+export const HotjarIcon: React.FC<IconProps> = ({ className = "w-10 h-10" }) => (
+  <svg viewBox="0 0 48 48" className={className} fill="none" aria-label="Hotjar">
+    <rect width="48" height="48" rx="10" fill="#1C1C1E" />
+    {/* Hotjar Flame in iconic coral red #FD3A5C */}
+    <path
+      d="M25.5 8C24.8 7.3 23.5 7.4 22.8 8.2C19.5 12 14 19 14 26.5C14 32.3 18.7 37 24.5 37C30.3 37 35 32.3 35 26.5C35 20.2 29.5 13.5 25.5 8Z"
+      fill="#FD3A5C"
+    />
+    {/* Inner flame core */}
+    <path
+      d="M24.5 33.5C21.5 33.5 19 31 19 28C19 24.8 21.8 20.8 23.5 18.6C24.8 20.2 26.2 22 26.8 24C27.5 26.2 26.8 28.5 25.5 30C25.1 30.5 24.8 31 24.5 33.5Z"
+      fill="#FFB020"
+    />
+  </svg>
+);
