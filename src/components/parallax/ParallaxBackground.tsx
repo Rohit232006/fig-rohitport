@@ -12,8 +12,6 @@ export const ParallaxBackground: React.FC = () => {
   const orb4Y = useTransform(scrollY, [0, 4000], [0, shouldReduceMotion ? 0 : 280]);
 
   // Floating Figma Canvas elements depth
-  const cursorY = useTransform(scrollY, [0, 3000], [0, shouldReduceMotion ? 0 : -180]);
-  const cursorX = useTransform(scrollY, [0, 3000], [0, shouldReduceMotion ? 0 : 60]);
   const tagY = useTransform(scrollY, [0, 3000], [0, shouldReduceMotion ? 0 : 220]);
   const crosshairY = useTransform(scrollY, [0, 3000], [0, shouldReduceMotion ? 0 : -120]);
 
@@ -46,19 +44,6 @@ export const ParallaxBackground: React.FC = () => {
         className="absolute bottom-10 right-[15%] w-[450px] h-[450px] rounded-full bg-[#FF7262]/6 dark:bg-[#FF7262]/4 blur-3xl"
       />
 
-      {/* Parallax Floating Figma Designer Cursor Badge */}
-      <motion.div
-        style={{ y: cursorY, x: cursorX }}
-        className="hidden lg:flex items-center gap-1.5 absolute top-[45%] left-[8%] bg-[#0D99FF] text-white text-[11px] font-mono px-2.5 py-1 rounded-md shadow-lg shadow-[#0D99FF]/20 border border-white/20"
-      >
-        <svg 
-          viewBox="0 0 24 24" 
-          className="w-3.5 h-3.5 fill-white"
-        >
-          <path d="M4 0l16 12.279-6.951 1.17 4.325 8.817-3.596 1.734-4.35-8.879-5.428 5.428z" />
-        </svg>
-        <span className="font-medium tracking-tight">Rohit (Designing...)</span>
-      </motion.div>
 
       {/* Parallax Floating Figma Measurement Tag */}
       <motion.div
@@ -85,3 +70,4 @@ export const ParallaxBackground: React.FC = () => {
     </div>
   );
 };
+
