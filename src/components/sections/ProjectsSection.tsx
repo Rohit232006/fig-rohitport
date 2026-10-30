@@ -3,13 +3,14 @@ import {
   ArrowUpRight, 
   ExternalLink, 
   Sparkles, 
-  CheckCircle2, 
   ChevronRight, 
   Layers, 
-  Truck, 
-  Dumbbell, 
   Activity, 
-  Maximize2 
+  ShieldCheck,
+  Smartphone,
+  Monitor,
+  Bot,
+  Truck
 } from 'lucide-react';
 import { Project } from '../../types';
 
@@ -22,36 +23,42 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   projects,
   onOpenCaseStudy,
 }) => {
-  // Render visual project preview inside the card
+  // Render visual project preview showcase inside each card
   const renderVisualPreview = (project: Project) => {
     switch (project.previewType) {
       case 'pharmaflow':
         return (
-          <div className="w-full h-56 sm:h-72 rounded-xl overflow-hidden relative border border-teal-900/40 bg-[#0A192F] group/img flex flex-col justify-end p-4">
+          <div className="w-full h-56 sm:h-64 rounded-xl overflow-hidden relative border border-teal-500/20 bg-[#081321] flex flex-col justify-between p-4 group/preview">
+            {/* Background mockup image with subtle zoom */}
             {project.logoUrl && (
               <img
                 src={project.logoUrl}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover object-top opacity-85 group-hover/img:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full object-cover object-top opacity-75 group-hover/preview:scale-105 transition-transform duration-500"
               />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#081321] via-[#081321]/50 to-transparent pointer-events-none" />
             
-            <div className="relative z-10 grid grid-cols-3 gap-2">
-              <div className="bg-[#0A192F]/90 backdrop-blur-md p-2 rounded border border-teal-500/30">
-                <span className="text-[10px] text-teal-400 block font-mono">DISPENSE QUEUE</span>
-                <span className="text-xs font-bold text-white">Active Dossier #204</span>
-                <p className="text-[9px] text-gray-400 mt-0.5">Barcode Handshake Ready</p>
+            {/* Top pill */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#00BFA5]/20 backdrop-blur-md border border-[#00BFA5]/40 text-[#00BFA5] text-[10px] font-mono font-semibold">
+                <ShieldCheck size={12} />
+                <span>CLINICAL POS · WCAG AAA</span>
+              </span>
+              <span className="text-[10px] font-mono text-teal-300/80 bg-teal-950/80 px-2 py-0.5 rounded border border-teal-800/40">
+                1440 × 900
+              </span>
+            </div>
+
+            {/* Bottom glanceable HUD chips */}
+            <div className="relative z-10 grid grid-cols-2 gap-2">
+              <div className="bg-[#081321]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-teal-500/30">
+                <span className="text-[9px] text-teal-400 font-mono block">3-TIER WARNINGS</span>
+                <span className="text-xs font-bold text-white">Zero Modal Fatigue</span>
               </div>
-              <div className="bg-[#0A192F]/90 backdrop-blur-md p-2 rounded border border-teal-500/30">
-                <span className="text-[10px] text-amber-400 block font-mono">TIERED WARNINGS</span>
-                <span className="text-xs font-bold text-white">3-Tier Clinical Hierarchy</span>
-                <p className="text-[9px] text-gray-400 mt-0.5">Zero Modal Fatigue</p>
-              </div>
-              <div className="bg-[#0A192F]/90 backdrop-blur-md p-2 rounded border border-teal-500/30">
-                <span className="text-[10px] text-teal-400 block font-mono">TOKEN SPEC</span>
-                <span className="text-xs font-bold text-white">WCAG AAA Certified</span>
-                <p className="text-[9px] text-gray-400 mt-0.5">Tokens Studio System</p>
+              <div className="bg-[#081321]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-teal-500/30">
+                <span className="text-[9px] text-teal-400 font-mono block">DISPENSE QUEUE</span>
+                <span className="text-xs font-bold text-white">Barcode Handshake</span>
               </div>
             </div>
           </div>
@@ -59,37 +66,56 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
       case 'fitstart':
         return (
-          <div className="w-full h-56 sm:h-72 rounded-xl bg-zinc-950 p-3 sm:p-5 border border-purple-900/40 flex items-center justify-center gap-3 sm:gap-4 relative overflow-hidden group/img">
-            {/* Desktop Preview Frame */}
-            <div className="w-3/5 h-full bg-zinc-900 rounded-lg border border-zinc-800 p-3 flex flex-col justify-between shadow-sm">
-              <div className="flex items-center justify-between border-b border-zinc-800 pb-1.5">
-                <span className="text-[10px] font-mono text-[#9747FF]">Desktop (1440px)</span>
-                <span className="text-[9px] bg-[#9747FF]/15 text-[#9747FF] px-1.5 py-0.5 rounded font-mono">12-Col</span>
+          <div className="w-full h-56 sm:h-64 rounded-xl overflow-hidden relative border border-purple-500/20 bg-[#120D1D] flex flex-col justify-between p-4 group/preview">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/30 via-[#120D1D] to-[#0A0711] pointer-events-none" />
+
+            {/* Top pill */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#9747FF]/20 backdrop-blur-md border border-[#9747FF]/40 text-[#C084FC] text-[10px] font-mono font-semibold">
+                <Smartphone size={12} />
+                <span>RESPONSIVE WEB · MULTI-DEVICE</span>
+              </span>
+              <span className="text-[10px] font-mono text-purple-300/80 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-800/40">
+                Fluid Grid
+              </span>
+            </div>
+
+            {/* Simulated Desktop & Mobile dual preview */}
+            <div className="relative z-10 flex items-center justify-center gap-3 my-auto">
+              {/* Desktop frame preview */}
+              <div className="w-3/5 bg-zinc-900/95 border border-purple-500/30 rounded-lg p-2.5 shadow-lg group-hover/preview:scale-[1.02] transition-transform duration-300">
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-1 mb-1.5">
+                  <div className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500/70" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/70" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500/70" />
+                  </div>
+                  <span className="text-[8px] font-mono text-purple-400">Desktop View</span>
+                </div>
+                <div className="space-y-1">
+                  <div className="h-2 w-3/4 bg-purple-400/40 rounded" />
+                  <div className="h-1.5 w-1/2 bg-zinc-700 rounded" />
+                </div>
               </div>
-              <div className="space-y-1.5 py-1">
-                <p className="text-xs font-bold text-white">Full-Body Strength Program</p>
-                <p className="text-[10px] text-zinc-400 line-clamp-2">Personalized routine discovery & fluid equipment filters</p>
-              </div>
-              <div className="flex items-center justify-between pt-1 border-t border-zinc-800 text-[9px] text-zinc-400">
-                <span>32 Mins • Intermediate</span>
-                <span className="text-[#9747FF] font-semibold">Start Routine →</span>
+
+              {/* Mobile device preview */}
+              <div className="w-1/4 bg-zinc-900/95 border-2 border-purple-500/40 rounded-xl p-2 shadow-xl flex flex-col items-center justify-center group-hover/preview:scale-[1.04] transition-transform duration-300">
+                <div className="w-7 h-7 rounded-full border-2 border-[#9747FF] flex items-center justify-center text-[8px] font-mono text-white font-bold my-1">
+                  00:45
+                </div>
+                <span className="text-[7px] text-purple-300 font-mono">Routine HUD</span>
               </div>
             </div>
 
-            {/* Mobile Preview Frame */}
-            <div className="w-2/5 h-full bg-zinc-900 rounded-xl border-2 border-purple-500/30 p-2.5 flex flex-col justify-between shadow-md">
-              <div className="flex items-center justify-between border-b border-zinc-800 pb-1">
-                <span className="text-[9px] font-mono text-zinc-400">Phone (375px)</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+            {/* Bottom glanceable HUD chips */}
+            <div className="relative z-10 grid grid-cols-2 gap-2">
+              <div className="bg-[#120D1D]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-purple-500/30">
+                <span className="text-[9px] text-purple-300 font-mono block">STREAK SYSTEM</span>
+                <span className="text-xs font-bold text-white">Habit Mechanics</span>
               </div>
-              <div className="flex flex-col items-center justify-center py-1">
-                <div className="w-9 h-9 rounded-full border-2 border-[#9747FF] border-t-transparent flex items-center justify-center text-[10px] font-mono font-bold text-white">
-                  00:45
-                </div>
-                <span className="text-[8px] text-zinc-400 mt-1">Rest Timer</span>
-              </div>
-              <div className="bg-[#9747FF] text-white text-[9px] font-semibold text-center py-1 rounded">
-                One-Tap Log
+              <div className="bg-[#120D1D]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-purple-500/30">
+                <span className="text-[9px] text-purple-300 font-mono block">THUMB TARGETS</span>
+                <span className="text-xs font-bold text-white">Gym-Floor UX</span>
               </div>
             </div>
           </div>
@@ -97,31 +123,39 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
       case 'agenticos':
         return (
-          <div className="w-full h-56 sm:h-72 rounded-xl overflow-hidden relative border border-blue-900/40 bg-slate-950 flex flex-col justify-end p-4 group/img">
-            <div className="absolute inset-0 flex items-center justify-center p-6 bg-gradient-to-b from-[#050B14] via-[#091528] to-[#0A1220]">
-              <div className="absolute w-64 h-48 rounded-full bg-[#0D99FF]/20 blur-3xl pointer-events-none" />
-              {project.logoUrl && (
-                <img
-                  src={project.logoUrl}
-                  alt={project.title}
-                  className="max-h-40 w-auto object-contain z-0 drop-shadow-[0_15px_35px_rgba(13,153,255,0.4)] group-hover/img:scale-105 transition-transform duration-500"
-                />
-              )}
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D18] via-[#070D18]/70 to-transparent pointer-events-none" />
+          <div className="w-full h-56 sm:h-64 rounded-xl overflow-hidden relative border border-blue-500/20 bg-[#060D1A] flex flex-col justify-between p-4 group/preview">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/25 via-[#060D1A] to-[#040810] pointer-events-none" />
 
-            <div className="relative z-10 grid grid-cols-3 gap-2">
-              <div className="bg-[#070D18]/90 backdrop-blur-md p-2 rounded border border-blue-500/30">
-                <span className="text-[10px] text-blue-400 block font-mono">AGENT RUNTIME</span>
-                <span className="text-xs font-bold text-white">Supervised Actions</span>
+            {/* Logo in center with glow */}
+            {project.logoUrl && (
+              <img
+                src={project.logoUrl}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-contain p-8 opacity-80 group-hover/preview:scale-105 transition-transform duration-500"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A] via-[#060D1A]/50 to-transparent pointer-events-none" />
+
+            {/* Top pill */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0D99FF]/20 backdrop-blur-md border border-[#0D99FF]/40 text-[#38BDF8] text-[10px] font-mono font-semibold">
+                <Bot size={12} />
+                <span>AI OPERATING SYSTEM · AGENT RUNTIME</span>
+              </span>
+              <span className="text-[10px] font-mono text-blue-300/80 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/40">
+                Next-Gen UI
+              </span>
+            </div>
+
+            {/* Bottom glanceable HUD chips */}
+            <div className="relative z-10 grid grid-cols-2 gap-2">
+              <div className="bg-[#060D1A]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-blue-500/30">
+                <span className="text-[9px] text-blue-400 font-mono block">SUPERVISED ACTIONS</span>
+                <span className="text-xs font-bold text-white">Confidence Gates</span>
               </div>
-              <div className="bg-[#070D18]/90 backdrop-blur-md p-2 rounded border border-blue-500/30">
-                <span className="text-[10px] text-cyan-400 block font-mono">CONTEXT ENGINE</span>
-                <span className="text-xs font-bold text-white">Living Canvas Surface</span>
-              </div>
-              <div className="bg-[#070D18]/90 backdrop-blur-md p-2 rounded border border-blue-500/30">
-                <span className="text-[10px] text-indigo-400 block font-mono">CONFIDENCE GATES</span>
-                <span className="text-xs font-bold text-white">1-Click Approvals</span>
+              <div className="bg-[#060D1A]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-blue-500/30">
+                <span className="text-[9px] text-blue-400 font-mono block">LIVING CANVAS</span>
+                <span className="text-xs font-bold text-white">Context Surface</span>
               </div>
             </div>
           </div>
@@ -129,31 +163,38 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
       case 'lastmile':
         return (
-          <div className="w-full h-56 sm:h-72 rounded-xl overflow-hidden relative border border-emerald-900/40 bg-slate-950 flex flex-col justify-end p-4 group/img">
-            <div className="absolute inset-0 flex items-center justify-center p-6 bg-gradient-to-b from-[#061214] via-[#091D1E] to-[#081517]">
-              <div className="absolute w-64 h-48 rounded-full bg-[#14AE5C]/20 blur-3xl pointer-events-none" />
-              {project.logoUrl && (
-                <img
-                  src={project.logoUrl}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-contain object-center opacity-90 group-hover/img:scale-105 transition-transform duration-500 p-6"
-                />
-              )}
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A141A] via-[#0A141A]/70 to-transparent pointer-events-none" />
+          <div className="w-full h-56 sm:h-64 rounded-xl overflow-hidden relative border border-emerald-500/20 bg-[#061413] flex flex-col justify-between p-4 group/preview">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-900/25 via-[#061413] to-[#040B0A] pointer-events-none" />
 
-            <div className="relative z-10 grid grid-cols-3 gap-2">
-              <div className="bg-[#0A141A]/90 backdrop-blur-md p-2 rounded border border-emerald-500/30">
-                <span className="text-[10px] text-emerald-400 block font-mono">WAITING PSYCHOLOGY</span>
+            {project.logoUrl && (
+              <img
+                src={project.logoUrl}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-contain p-6 opacity-85 group-hover/preview:scale-105 transition-transform duration-500"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061413] via-[#061413]/50 to-transparent pointer-events-none" />
+
+            {/* Top pill */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#14AE5C]/20 backdrop-blur-md border border-[#14AE5C]/40 text-[#4ADE80] text-[10px] font-mono font-semibold">
+                <Truck size={12} />
+                <span>CONSUMER LOGISTICS · FINAL 100M</span>
+              </span>
+              <span className="text-[10px] font-mono text-emerald-300/80 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/40">
+                Mobile UX
+              </span>
+            </div>
+
+            {/* Bottom glanceable HUD chips */}
+            <div className="relative z-10 grid grid-cols-2 gap-2">
+              <div className="bg-[#061413]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-emerald-500/30">
+                <span className="text-[9px] text-emerald-400 font-mono block">ANXIETY REDUCTION</span>
                 <span className="text-xs font-bold text-white">Live Progress HUD</span>
               </div>
-              <div className="bg-[#0A141A]/90 backdrop-blur-md p-2 rounded border border-emerald-500/30">
-                <span className="text-[10px] text-green-400 block font-mono">DOORSTEP PINPOINT</span>
-                <span className="text-xs font-bold text-white">Final 100m Routing</span>
-              </div>
-              <div className="bg-[#0A141A]/90 backdrop-blur-md p-2 rounded border border-emerald-500/30">
-                <span className="text-[10px] text-teal-400 block font-mono">ANXIETY REDUCTION</span>
-                <span className="text-xs font-bold text-white">Silent Delivery Flow</span>
+              <div className="bg-[#061413]/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-emerald-500/30">
+                <span className="text-[9px] text-emerald-400 font-mono block">DOORSTEP ROUTING</span>
+                <span className="text-xs font-bold text-white">Pinpoint Handshake</span>
               </div>
             </div>
           </div>
@@ -166,69 +207,61 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
   return (
     <section id="work" className="py-16 sm:py-24 border-b border-gray-200/80 dark:border-zinc-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-gray-200 dark:border-zinc-800">
           <div>
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#0D99FF]/10 text-[#0D99FF] text-xs font-mono font-medium mb-3">
               <Layers size={13} />
-              <span>01 — 04 / Selected Projects</span>
+              <span>01 / Selected Works</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1E1E1E] dark:text-white">
               Featured Case Studies & Work
             </h2>
             <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
-              Exploring SaaS product design, responsive web experiences, autonomous AI interfaces, and consumer logistics flows.
+              SaaS dashboard systems, responsive web interfaces, autonomous AI surfaces, and consumer logistics workflows.
             </p>
           </div>
 
-          <div className="text-xs font-mono text-gray-500 bg-gray-100 dark:bg-zinc-800 px-3 py-1.5 rounded-lg whitespace-nowrap self-start sm:self-auto">
-            <span>4 In-Depth Projects</span>
+          <div className="text-xs font-mono text-gray-500 bg-gray-100 dark:bg-zinc-800 px-3 py-1.5 rounded-lg whitespace-nowrap self-start sm:self-auto border border-gray-200/60 dark:border-zinc-700/60">
+            <span>4 In-Depth Case Studies</span>
           </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
-            const isFullWidth = index === 0; // First project (Pharmaflow) spans full width as flagship
+        {/* Balanced 2x2 Symmetrical Grid for Proper Fitting */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {projects.map((project) => {
             return (
               <div
                 key={project.id}
                 onClick={() => onOpenCaseStudy(project)}
-                className={`bg-white dark:bg-[#202023] border border-[#E5E7EB] dark:border-[#2E2E2E] hover:border-[#0D99FF] rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-figma-card hover:shadow-figma-floating transition-all duration-300 cursor-pointer group flex flex-col justify-between relative overflow-hidden select-text ${
-                  isFullWidth ? 'lg:col-span-2' : ''
-                }`}
+                className="bg-white dark:bg-[#202023] border border-gray-200 dark:border-zinc-800 hover:border-[#0D99FF] dark:hover:border-[#0D99FF] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-figma-card hover:shadow-figma-floating transition-all duration-300 cursor-pointer group flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Figma Frame Topbar */}
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-gray-100 dark:border-zinc-800 text-xs">
-                  <div className="flex items-center gap-2.5 overflow-hidden">
+                  <div className="flex items-center gap-2 overflow-hidden">
                     <span 
-                      className="w-3 h-3 rounded-xs flex-shrink-0" 
+                      className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
                       style={{ backgroundColor: project.accentColor }} 
                     />
-                    <span className="font-mono font-bold text-xs text-gray-900 dark:text-white truncate">
-                      #{project.number} / {project.title}
+                    <span className="font-mono font-semibold text-xs text-gray-900 dark:text-white truncate">
+                      #{project.number} · {project.title.split('—')[0].trim()}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 flex-shrink-0">
-                    <span className="text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-zinc-800 px-2 py-0.5 rounded">
-                      1440 × 900
-                    </span>
-                    <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-zinc-800 px-2 py-0.5 rounded hidden sm:inline">
-                      {project.status}
-                    </span>
-                  </div>
+                  <span className="text-[10px] font-mono text-[#0D99FF] bg-[#0D99FF]/10 px-2 py-0.5 rounded font-medium">
+                    {project.status}
+                  </span>
                 </div>
 
-                {/* Large Visual Preview Showcase */}
+                {/* Visual Preview Showcase */}
                 <div className="mb-5">
                   {renderVisualPreview(project)}
                 </div>
 
                 {/* Project Info & Description */}
-                <div className="space-y-3 flex-1 flex flex-col justify-between">
+                <div className="space-y-4 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-1.5">
                       <span className="text-xs font-semibold text-[#0D99FF]">
@@ -238,30 +271,35 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
                     <h3 className="text-xl sm:text-2xl font-bold text-[#1E1E1E] dark:text-white group-hover:text-[#0D99FF] transition-colors flex items-center justify-between">
                       <span>{project.title}</span>
-                      <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#0D99FF]" />
+                      <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#0D99FF]" />
                     </h3>
 
                     {project.tagline && (
-                      <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 italic mt-1">
+                      <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 italic mt-1 line-clamp-1">
                         “{project.tagline}”
                       </p>
                     )}
 
-                    <p className="text-xs sm:text-sm text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed mt-2.5">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-2.5 line-clamp-2">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Tech stack chips */}
-                  <div className="flex flex-wrap items-center gap-1.5 pt-3">
-                    {project.techStack.map((tech) => (
+                  <div className="flex flex-wrap items-center gap-1.5 pt-2">
+                    {project.techStack.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="text-[10px] font-medium bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md"
+                        className="text-[10px] font-mono bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md"
                       >
                         {tech}
                       </span>
                     ))}
+                    {project.techStack.length > 4 && (
+                      <span className="text-[10px] font-mono text-gray-400 bg-gray-50 dark:bg-zinc-900 px-2 py-1 rounded-md">
+                        +{project.techStack.length - 4} more
+                      </span>
+                    )}
                   </div>
 
                   {/* Actions Bar */}
@@ -273,7 +311,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                       }}
                       className="bg-[#0D99FF] hover:bg-[#0085EB] text-white px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer active:scale-95"
                     >
-                      <span>View Case Study</span>
+                      <span>Read Case Study</span>
                       <ChevronRight size={14} />
                     </button>
 
@@ -283,11 +321,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="bg-[#0057FF]/10 hover:bg-[#0057FF]/20 text-[#0057FF] dark:text-[#38bdf8] border border-[#0057FF]/30 px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                        className="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-200 border border-gray-200/80 dark:border-zinc-700 px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
                       >
                         <span className="font-bold text-[10px] bg-[#0057FF] text-white px-1 rounded-xs">Bē</span>
-                        <span>View Full Case Study on Behance</span>
-                        <ExternalLink size={12} />
+                        <span>Behance</span>
+                        <ExternalLink size={12} className="text-gray-400" />
                       </a>
                     )}
                   </div>
@@ -302,4 +340,3 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     </section>
   );
 };
-
