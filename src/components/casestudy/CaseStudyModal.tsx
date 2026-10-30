@@ -50,7 +50,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-black/60 backdrop-blur-md select-text animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-black/60 backdrop-blur-md select-text transition-opacity duration-200"
       onWheel={(e) => e.stopPropagation()}
     >
       <div className="min-h-full py-4 md:py-8 px-2 sm:px-4 md:px-8 flex items-start justify-center">

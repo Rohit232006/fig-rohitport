@@ -49,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         
         {/* Figma Workspace Frame Meta Tag */}
         <div className="flex items-center justify-between mb-6">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-white dark:bg-[#202023] border border-gray-200 dark:border-zinc-800 shadow-2xs text-[11px] font-mono text-gray-500">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-white dark:bg-[#202023] border border-gray-200 dark:border-zinc-800 shadow-sm text-[11px] font-mono text-gray-500">
             <span className="w-2 h-2 rounded-full bg-[#0D99FF]" />
             <span className="text-[#0D99FF] font-semibold">Frame: 00</span>
             <span>/</span>
@@ -118,7 +118,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 href={aboutData.contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#202023] hover:border-[#0D99FF] text-gray-800 dark:text-gray-200 px-5 sm:px-6 py-3 rounded-xl font-semibold text-sm transition-all flex items-center gap-2 shadow-2xs hover:shadow-sm"
+                className="border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#202023] hover:border-[#0D99FF] text-gray-800 dark:text-gray-200 px-5 sm:px-6 py-3 rounded-xl font-semibold text-sm transition-all flex items-center gap-2 shadow-sm hover:shadow-sm"
               >
                 <FileText size={15} className="text-[#0D99FF]" />
                 <span>View LinkedIn & Resume</span>

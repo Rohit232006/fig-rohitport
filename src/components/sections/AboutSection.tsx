@@ -95,7 +95,7 @@ export const AboutSection: React.FC = () => {
             {/* 3 Core Competency Cards (Compact & Visual) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               
-              <div className="bg-white dark:bg-[#202023] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-2xs space-y-2">
+              <div className="bg-white dark:bg-[#202023] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <div className="w-8 h-8 rounded-lg bg-[#0D99FF]/10 text-[#0D99FF] flex items-center justify-center">
                   <Layout size={16} />
                 </div>
@@ -105,7 +105,7 @@ export const AboutSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-[#202023] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-2xs space-y-2">
+              <div className="bg-white dark:bg-[#202023] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <div className="w-8 h-8 rounded-lg bg-[#FF6F00]/10 text-[#FF6F00] flex items-center justify-center">
                   <BarChart3 size={16} />
                 </div>
@@ -115,7 +115,7 @@ export const AboutSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-[#202023] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-2xs space-y-2">
+              <div className="bg-white dark:bg-[#202023] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <div className="w-8 h-8 rounded-lg bg-[#14AE5C]/10 text-[#14AE5C] flex items-center justify-center">
                   <Code2 size={16} />
                 </div>

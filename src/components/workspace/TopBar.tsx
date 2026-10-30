@@ -157,7 +157,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
       {/* Accessible Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#E5E7EB] dark:border-[#2E2E2E] bg-white dark:bg-[#18181B] px-4 py-4 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-150">
+        <div className="md:hidden border-t border-[#E5E7EB] dark:border-[#2E2E2E] bg-white dark:bg-[#18181B] px-4 py-4 space-y-3 shadow-xl transition-all">
           <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-zinc-800">
             <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-mono">
               Menu Navigation

@@ -222,7 +222,7 @@ export const ContactSection: React.FC = () => {
             <div className="bg-white dark:bg-[#202023] p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-figma-card">
               
               {isSubmitted ? (
-                <div className="text-center py-10 space-y-4 animate-in fade-in duration-300">
+                <div className="text-center py-10 space-y-4 transition-opacity">
                   <div className="w-14 h-14 rounded-2xl bg-green-500/10 text-green-500 flex items-center justify-center mx-auto">
                     <CheckCircle2 size={32} />
                   </div>

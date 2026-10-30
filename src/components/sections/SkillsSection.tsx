@@ -62,7 +62,7 @@ const ParallaxCategoryCard: React.FC<{
       {/* Category Subheader */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-gray-200/60 dark:border-zinc-800/60">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center border border-gray-200 dark:border-zinc-700 shadow-2xs">
+          <div className="w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center border border-gray-200 dark:border-zinc-700 shadow-sm">
             {cat.icon}
           </div>
           <div>
@@ -98,7 +98,7 @@ const ParallaxCategoryCard: React.FC<{
             >
               {/* App Icon Container (~64-76px on desktop) */}
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center p-1.5 sm:p-2 rounded-xl bg-gray-50 dark:bg-zinc-900/80 group-hover:scale-110 group-hover:-translate-y-0.5 transition-all duration-200 ease-out">
-                <Icon className="w-8 h-8 sm:w-9 sm:h-9 object-contain filter drop-shadow-2xs" />
+                <Icon className="w-8 h-8 sm:w-9 sm:h-9 object-contain filter drop-shadow-sm" />
               </div>
 
               {/* Tool Name Always Visible Underneath */}
