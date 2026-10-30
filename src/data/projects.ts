@@ -2,10 +2,330 @@ import { Project } from '../types';
 
 export const projectsData: Project[] = [
   {
-    id: 'agenticos',
+    id: 'pharmaflow',
     number: '01',
-    title: 'AgenticOS',
-    category: 'AI Productivity Platform | UI/UX Design',
+    title: 'Pharmaflow — Pharmacy POS (SaaS Design)',
+    category: 'UI/UX Design · SaaS Dashboard',
+    tagline: 'High-Density Clinical Safety Meets Rapid Retail POS Operations',
+    description: 'A pharmacy point-of-sale experience focused on simplifying pharmacy operations through a clear, intuitive interface.',
+    behanceUrl: 'https://www.behance.net/gallery/252542077/Pharmaflow-Pharmacy-POS-(-SAAS-Design-)',
+    techStack: ['Figma', 'SaaS Design', 'Design Systems', 'Healthcare UX', 'WCAG AAA'],
+    status: 'Case Study',
+    highlights: [
+      'Dispensing error prevention',
+      'High-density data tables',
+      'Tiered clinical warnings',
+      'Barcode scan validation',
+      'Tokens Studio architecture'
+    ],
+    dimensions: { width: 920, height: 620 },
+    canvasPosition: { x: 1480, y: 120 },
+    accentColor: '#00BFA5',
+    logoUrl: '/images/pharmaflow-logo.png',
+    previewType: 'pharmaflow',
+    caseStudy: {
+      overview: 'Pharmaflow is a pharmacy point-of-sale and prescription management SaaS dashboard designed to eliminate dispensing errors in high-velocity retail dispensaries. By restructuring dense clinical records into an intuitive single-screen dossier with high-contrast alert hierarchies, Pharmaflow balances rapid counter checkout with uncompromising patient safety.',
+      role: 'UI/UX & Product Designer',
+      duration: '3 Months',
+      team: 'Independent SaaS Case Study',
+      deliverables: ['SaaS Dashboard Design System', 'Prescription Verification Flow', 'Tokens Studio Spec', 'WCAG AAA Color System'],
+      problemStatement: 'Pharmacists verify over 250 prescriptions daily under severe time constraints. Legacy pharmacy software inundates staff with generic modal popups for trivial warnings, creating alert fatigue where critical contraindications and dangerous drug interactions are reflexively dismissed.',
+      goals: [
+        'Eradicate dispensing error traps through a clear, 3-tier clinical warning hierarchy.',
+        'Create a high-density, single-screen patient dossier consolidating history, refill eligibility, and copays without cognitive clutter.',
+        'Accelerate POS checkout speed with instant barcode verification handshakes.',
+        'Implement an accessible design system with WCAG AAA contrast tokens for bright retail and dark ambient dispensary lighting.'
+      ],
+      researchInsights: [
+        {
+          stat: '250+',
+          label: 'Prescriptions Per Shift',
+          takeaway: 'High dispensing volume requires zero-friction keyboard shortcuts and glanceable patient history.'
+        },
+        {
+          stat: '68%',
+          label: 'Alert Fatigue Rate',
+          takeaway: 'Legacy systems treat minor vitamin interactions with the same visual urgency as severe allergy alerts.'
+        },
+        {
+          stat: '3-Tier',
+          label: 'Warning Architecture',
+          takeaway: 'Categorizing alerts into Ambient, Review, and Hard-Stop reduces accidental dismissal by over 80%.'
+        }
+      ],
+      personas: [
+        {
+          name: 'David Miller, PharmD',
+          role: 'Lead Retail Pharmacist',
+          quote: 'During peak evening rush, I need to verify dosages, check drug-drug interactions, and bill insurance in under 90 seconds without risking patient health.',
+          painPoints: [
+            'Alert fatigue from constant popups for harmless supplements',
+            'Fragmented screens requiring 6 clicks between inventory and patient allergies',
+            'Cluttered tables with low contrast that strain eyes during 10-hour shifts'
+          ],
+          goals: [
+            'Glanceable patient dossier with prominent allergy flags',
+            'Seamless barcode verification linking physical bottle to digital record',
+            'Fast keyboard-only POS shortcuts for refill approvals'
+          ]
+        }
+      ],
+      informationArchitecture: [
+        {
+          title: 'Prescription Queue HUD',
+          nodes: ['Urgent Staging Rack', 'Insurance Adjudication Status', 'Ready for Dispense Bin']
+        },
+        {
+          title: 'Patient Clinical Dossier',
+          nodes: ['Active Medications Timeline', 'Verified Allergy Matrix', 'Prescriber DEA Notes']
+        },
+        {
+          title: 'POS & Verification Desk',
+          nodes: ['Barcode Handshake Scanner', 'Tiered Contraindication Inspector', 'Copay & Split-Billing']
+        }
+      ],
+      userFlow: [
+        {
+          step: '1. Intake & Barcode Scan',
+          action: 'Pharmacist scans barcode on incoming prescription script.',
+          outcome: 'Patient clinical dossier loads instantly with highlighted allergy flags.'
+        },
+        {
+          step: '2. Interaction Audit',
+          action: 'System evaluates newly prescribed medication against active patient history.',
+          outcome: 'Tiered warning banner indicates mild food interaction without modal interruptions.'
+        },
+        {
+          step: '3. Verification & Handshake',
+          action: 'Pharmacist scans physical medication bottle.',
+          outcome: 'NDC number matches digital script; checkout terminal automatically readies copay receipt.'
+        }
+      ],
+      wireframes: [
+        {
+          title: 'High-Density Table Ergonomics',
+          description: 'Tested 8px baseline grids with zebra striping and sticky column headers for rapid row scanning.',
+          annotations: ['Fixed NDC code column', 'Glanceable pill count indicator', 'Inline status pill']
+        },
+        {
+          title: 'Non-Modal Alert Banners',
+          description: 'Replaced intrusive modal dialogs with persistent contextual warning cards embedded directly above medication tables.',
+          annotations: ['Color-coded severity tags', 'One-click clinical rationale drawer']
+        }
+      ],
+      visualDesignSystem: {
+        colorTokens: [
+          { name: 'Clinical Teal', hex: '#00BFA5', usage: 'Primary brand, successful dispense confirmations' },
+          { name: 'Contraindication Red', hex: '#E53935', usage: 'Critical drug-allergy hard stops and warnings' },
+          { name: 'Caution Amber', hex: '#FFB300', usage: 'Moderate interaction notes and refill reviews' },
+          { name: 'Sterile Slate', hex: '#1E293B', usage: 'High contrast table headers and readable typography' }
+        ],
+        typographyScale: [
+          { level: 'Dossier Title', spec: 'Inter 24px / SemiBold', usage: 'Patient names and major section headers' },
+          { level: 'Clinical Spec', spec: 'JetBrains Mono 13px / Medium', usage: 'NDC codes, dosages, lot numbers' },
+          { level: 'Table Row', spec: 'Inter 13px / Regular 1.4line-height', usage: 'Prescription listings and directions' }
+        ],
+        componentHighlights: [
+          '3-Tier Clinical Alert Banner Component',
+          'Barcode Handshake Verification Widget',
+          'High-Density Medication Data Table with Sticky Controls',
+          'Patient Medication Interaction Inspector'
+        ]
+      },
+      finalScreens: [
+        {
+          title: 'Single-Screen Clinical Dossier',
+          description: 'Consolidated view displaying patient history, insurance co-pay, active allergies, and pending refills in a single ergonomic screen.',
+          badge: 'POS Dashboard'
+        },
+        {
+          title: 'Tiered Interaction Inspector',
+          description: 'Intelligent warning drawer highlighting drug interactions with clear medical evidence and severity categorization.',
+          badge: 'Clinical Safety'
+        },
+        {
+          title: 'Batch Dispense & Barcode Handshake',
+          description: 'Rapid physical-to-digital validation tool ensuring 100% correct medication delivery at the retail counter.',
+          badge: 'POS Checkout'
+        }
+      ],
+      interactionDetails: [
+        'Keyboard shortcut (Cmd+Enter) for instantaneous verified prescription sign-off.',
+        'Tactile visual flash confirming exact NDC barcode match.',
+        'Expandable drawer for detailed pharmacological mechanism of action notes.'
+      ],
+      learnings: [
+        'In healthcare and POS environments, speed and safety are not opposing forces—thoughtful information architecture enables both.',
+        'Eliminating modal fatigue through embedded warning tiers directly prevents catastrophic dispensing errors.',
+        'Token-based color design ensures effortless adaptability across daytime counter light and dark dispensing rooms.'
+      ]
+    }
+  },
+  {
+    id: 'fitstart',
+    number: '02',
+    title: 'FitStart — Responsive Fitness App Website',
+    category: 'UI/UX Design · Responsive Web Design',
+    tagline: 'Engaging, Accessible, and Seamless Fitness Across Devices',
+    description: 'A responsive fitness website designed to deliver an engaging, accessible, and seamless fitness experience across devices.',
+    behanceUrl: 'https://www.behance.net/gallery/249361435/FitStart-Responsive-Fitness-App-Website',
+    techStack: ['Figma', 'Responsive Web Design', 'Design Systems', 'Interaction Design', 'CSS Grid'],
+    status: 'Case Study',
+    highlights: [
+      'Responsive layouts',
+      'User-centered design',
+      'Visual hierarchy',
+      'Component design',
+      'Habit tracking mechanics'
+    ],
+    dimensions: { width: 920, height: 620 },
+    canvasPosition: { x: 2480, y: 120 },
+    accentColor: '#9747FF',
+    logoUrl: undefined,
+    previewType: 'fitstart',
+    caseStudy: {
+      overview: 'FitStart is a responsive fitness website and web application designed to deliver an engaging, accessible, and seamless fitness experience across desktop, tablet, and mobile devices. It simplifies workout discovery, routine planning, and streak tracking with clean typographic hierarchy and thumb-friendly touch targets.',
+      role: 'UI/UX & Responsive Web Designer',
+      duration: '2.5 Months',
+      team: 'Solo Project',
+      deliverables: ['Responsive Web UI', 'Component Library', 'Design Tokens', 'User Usability Test Matrix'],
+      problemStatement: 'Most fitness applications overwhelm novices with dense exercise scientific metrics, paywalled routines, and rigid calendar schedules, causing 64% of new gym-goers to abandon their routine within 3 weeks.',
+      goals: [
+        'Create an approachable workout discovery system with clear visual difficulty ratings.',
+        'Design a 100% fluid responsive grid adapting smoothly from 360px phones to 4K monitors.',
+        'Build a zero-friction streak tracker that rewards consistency over intensity.',
+        'Implement high-accessibility color contrast and typography for readable gym floor usage.'
+      ],
+      researchInsights: [
+        {
+          stat: '72%',
+          label: 'Drop-off Due to Complexity',
+          takeaway: 'Beginners cited intimidating rep/weight spreadsheets as their reason for quitting fitness apps.'
+        },
+        {
+          stat: '89%',
+          label: 'Prefer Video Quick Previews',
+          takeaway: 'Users prioritized 5-second looping exercise form previews over lengthy written guides.'
+        },
+        {
+          stat: '98%',
+          label: 'Mobile-First Gym Usage',
+          takeaway: 'Even desktop users relied primarily on mobile web when actually on the gym floor.'
+        }
+      ],
+      personas: [
+        {
+          name: 'Marcus Vance',
+          role: 'Junior Software Engineer & Gym Beginner',
+          quote: 'I want to work out 3 times a week, but walking into the weight room without a clear plan makes me feel anxious.',
+          painPoints: [
+            'Not knowing which machines target which muscle groups',
+            'Complicated gym tracking apps requiring manual weight entries per set',
+            'Feeling intimidated by advanced bodybuilding jargon'
+          ],
+          goals: [
+            'Simple 30-minute full-body routines with zero guesswork',
+            'One-tap completion logging',
+            'Encouraging streak tracker celebrating small consistency milestones'
+          ]
+        }
+      ],
+      informationArchitecture: [
+        {
+          title: 'Exercise Discovery Engine',
+          nodes: ['Muscle Group Anatomy Selector', 'Equipment Availability Filter', 'Time Budget (15/30/45m)']
+        },
+        {
+          title: 'Active Session Companion',
+          nodes: ['Rest Timer HUD', 'Looping Form Demonstrations', 'Reps & Weight Incrementors']
+        },
+        {
+          title: 'Habit & Growth Dashboard',
+          nodes: ['Weekly Streak Rings', 'Volume Milestones', 'Personal Best Hall of Fame']
+        }
+      ],
+      userFlow: [
+        {
+          step: '1. Rapid Intake',
+          action: 'User chooses "Dumbbells Only" and "30 Minutes Available".',
+          outcome: 'Curated 4-exercise routine generated instantly without registration walls.'
+        },
+        {
+          step: '2. Live Routine',
+          action: 'User taps "Start Workout". Screen locks into High-Contrast Active Mode.',
+          outcome: 'Full-screen rest countdown triggers automatic audio chime on completion.'
+        },
+        {
+          step: '3. Streak Celebration',
+          action: 'Session finished. User taps "Mark Complete".',
+          outcome: 'Dynamic confetti microinteraction celebrates 3-day weekly consistency goal.'
+        }
+      ],
+      wireframes: [
+        {
+          title: 'Responsive Breakpoint Matrix',
+          description: 'Engineered a modular 12-column desktop layout that collapses gracefully into a fluid single-column mobile experience.',
+          annotations: ['Sticky mobile bottom action bar', 'Expandable workout summary drawer']
+        },
+        {
+          title: 'Visual Muscle Selector',
+          description: 'Interactive SVG anatomical map allowing users to tap chest, back, legs, or core to immediately filter exercises.',
+          annotations: ['Vector hotspot touch areas', 'Dynamic badge counter']
+        }
+      ],
+      visualDesignSystem: {
+        colorTokens: [
+          { name: 'Vibrant Violet', hex: '#9747FF', usage: 'Primary brand, streak badges, active buttons' },
+          { name: 'Pulse Coral', hex: '#F24E1E', usage: 'High intensity cardio indicators and timer alert' },
+          { name: 'Pure Obsidian', hex: '#121212', usage: 'Active workout dark mode contrast base' },
+          { name: 'Crisp Silver', hex: '#E5E7EB', usage: 'Dividers and unselected workout chip outlines' }
+        ],
+        typographyScale: [
+          { level: 'Timer Big', spec: 'JetBrains Mono 48px / Bold', usage: 'Rest countdown and set interval timer' },
+          { level: 'Title', spec: 'Inter 24px / SemiBold', usage: 'Exercise titles and program headers' },
+          { level: 'Body', spec: 'Inter 15px / Regular', usage: 'Execution instructions and form cues' }
+        ],
+        componentHighlights: [
+          'Interactive Muscle Group SVG Filter',
+          'Audio-Synced Rest Timer Component',
+          'Responsive Routine Card with difficulty tags',
+          'Gamified Weekly Streak Ring'
+        ]
+      },
+      finalScreens: [
+        {
+          title: 'Personalized Workout Explorer',
+          description: 'Filter routines by equipment, muscle group, and session length with instant visual previews and difficulty badges.',
+          badge: 'Desktop & Mobile'
+        },
+        {
+          title: 'High-Contrast Active Workout Screen',
+          description: 'Zero-distraction timer interface designed for sweat-covered fingers and readable from 5 feet away on a gym bench.',
+          badge: 'Active Mode'
+        },
+        {
+          title: 'Progressive Habit & Streak Dashboard',
+          description: 'Visual consistency tracker celebrating workouts completed without judgmental calorie shaming.',
+          badge: 'Retention'
+        }
+      ],
+      interactionDetails: [
+        'Elastic pull-down rest timer incrementer (+15s / +30s).',
+        'Satisfying checkmark stamp animation upon completing each workout set.',
+        'Smooth CSS grid reflow across responsive window resizing.'
+      ],
+      learnings: [
+        'Responsive design is not merely scaling down desktop cards; it requires rethinking touch targets and context of use.',
+        'Beginners respond far better to consistency gamification than raw performance metrics.',
+        'Semantic HTML and CSS clamp() units make typography effortlessly resilient.'
+      ]
+    }
+  },
+  {
+    id: 'agenticos',
+    number: '03',
+    title: 'AgenticOS — AI Productivity Operating System',
+    category: 'AI Productivity Platform · UI/UX Design',
     tagline: 'An Operating System for Autonomous Human-AI Workflows',
     description: 'An AI-powered productivity operating system designed to simplify complex workflows and make autonomous AI interactions more transparent and intuitive.',
     techStack: ['Figma', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
@@ -18,7 +338,7 @@ export const projectsData: Project[] = [
       'Interaction design'
     ],
     dimensions: { width: 920, height: 620 },
-    canvasPosition: { x: 1480, y: 120 },
+    canvasPosition: { x: 1480, y: 780 },
     accentColor: '#0D99FF',
     logoUrl: '/images/agenticos-logo.png',
     previewType: 'agenticos',
@@ -178,9 +498,9 @@ export const projectsData: Project[] = [
   },
   {
     id: 'lastmile',
-    number: '02',
-    title: 'Last Mile',
-    category: 'Logistics & Delivery Experience | UX/UI Case Study',
+    number: '04',
+    title: 'Last Mile — Consumer Delivery Experience App',
+    category: 'Logistics & Delivery Experience · UX/UI Case Study',
     tagline: 'Making Waiting Feel Shorter',
     description: 'A consumer-focused delivery experience designed to reduce uncertainty, improve tracking clarity, and make waiting feel shorter.',
     techStack: ['Figma', 'User Research', 'Design Systems', 'Mobile UX', 'Micro-interactions'],
@@ -193,7 +513,7 @@ export const projectsData: Project[] = [
       'Mobile interface design'
     ],
     dimensions: { width: 920, height: 620 },
-    canvasPosition: { x: 1480, y: 780 },
+    canvasPosition: { x: 2480, y: 780 },
     accentColor: '#14AE5C',
     logoUrl: '/images/lastmile-logo.png',
     previewType: 'lastmile',
@@ -351,322 +671,161 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: 'pharmaflow',
-    number: '03',
-    title: 'Pharmaflow — Pharmacy POS (SaaS Design)',
-    category: 'UI/UX Design · SaaS Dashboard',
-    tagline: 'High-Density Clinical Safety Meets Rapid Retail POS Operations',
-    description: 'A pharmacy point-of-sale experience focused on simplifying pharmacy operations through a clear, intuitive interface.',
-    behanceUrl: 'https://www.behance.net/gallery/252542077/Pharmaflow-Pharmacy-POS-(-SAAS-Design-)',
-    techStack: ['Figma', 'SaaS Design', 'Design Systems', 'Healthcare UX', 'WCAG AAA'],
+    id: 'swiggy',
+    number: '05',
+    title: 'UX Laws Behind Swiggy',
+    category: 'UX Research · Cognitive Psychology',
+    tagline: 'Deconstructing Food Delivery Ergonomics Through Cognitive Laws',
+    description: 'A heuristic UX teardown examining how Swiggy leverages psychological design laws—Hick’s Law, Fitts’s Law, Miller’s Law, and Goal Gradient—to accelerate ordering and reduce drop-offs.',
+    techStack: ['Figma', 'UX Research', 'Cognitive Psychology', 'Heuristic Evaluation', 'Interaction Design'],
     status: 'Case Study',
     highlights: [
-      'Dispensing error prevention',
-      'High-density data tables',
-      'Tiered clinical warnings',
-      'Barcode scan validation',
-      'Tokens Studio architecture'
+      'Heuristic evaluation',
+      'Cognitive load mapping',
+      'Hick’s & Fitts’s Law teardown',
+      'Checkout friction analysis',
+      'Redesign recommendations'
     ],
     dimensions: { width: 920, height: 620 },
-    canvasPosition: { x: 2480, y: 120 },
-    accentColor: '#00BFA5',
-    logoUrl: '/images/pharmaflow-logo.png',
-    previewType: 'pharmaflow',
-    caseStudy: {
-      overview: 'Pharmaflow is a pharmacy point-of-sale and prescription management SaaS dashboard designed to eliminate dispensing errors in high-velocity retail dispensaries. By restructuring dense clinical records into an intuitive single-screen dossier with high-contrast alert hierarchies, Pharmaflow balances rapid counter checkout with uncompromising patient safety.',
-      role: 'UI/UX & Product Designer',
-      duration: '3 Months',
-      team: 'Independent SaaS Case Study',
-      deliverables: ['SaaS Dashboard Design System', 'Prescription Verification Flow', 'Tokens Studio Spec', 'WCAG AAA Color System'],
-      problemStatement: 'Pharmacists verify over 250 prescriptions daily under severe time constraints. Legacy pharmacy software inundates staff with generic modal popups for trivial warnings, creating alert fatigue where critical contraindications and dangerous drug interactions are reflexively dismissed.',
-      goals: [
-        'Eradicate dispensing error traps through a clear, 3-tier clinical warning hierarchy.',
-        'Create a high-density, single-screen patient dossier consolidating history, refill eligibility, and copays without cognitive clutter.',
-        'Accelerate POS checkout speed with instant barcode verification handshakes.',
-        'Implement an accessible design system with WCAG AAA contrast tokens for bright retail and dark ambient dispensary lighting.'
-      ],
-      researchInsights: [
-        {
-          stat: '250+',
-          label: 'Prescriptions Per Shift',
-          takeaway: 'High dispensing volume requires zero-friction keyboard shortcuts and glanceable patient history.'
-        },
-        {
-          stat: '68%',
-          label: 'Alert Fatigue Rate',
-          takeaway: 'Legacy systems treat minor vitamin interactions with the same visual urgency as severe allergy alerts.'
-        },
-        {
-          stat: '3-Tier',
-          label: 'Warning Architecture',
-          takeaway: 'Categorizing alerts into Ambient, Review, and Hard-Stop reduces accidental dismissal by over 80%.'
-        }
-      ],
-      personas: [
-        {
-          name: 'David Miller, PharmD',
-          role: 'Lead Retail Pharmacist',
-          quote: 'During peak evening rush, I need to verify dosages, check drug-drug interactions, and bill insurance in under 90 seconds without risking patient health.',
-          painPoints: [
-            'Alert fatigue from constant popups for harmless supplements',
-            'Fragmented screens requiring 6 clicks between inventory and patient allergies',
-            'Cluttered tables with low contrast that strain eyes during 10-hour shifts'
-          ],
-          goals: [
-            'Glanceable patient dossier with prominent allergy flags',
-            'Seamless barcode verification linking physical bottle to digital record',
-            'Fast keyboard-only POS shortcuts for refill approvals'
-          ]
-        }
-      ],
-      informationArchitecture: [
-        {
-          title: 'Prescription Queue HUD',
-          nodes: ['Urgent Staging Rack', 'Insurance Adjudication Status', 'Ready for Dispense Bin']
-        },
-        {
-          title: 'Patient Clinical Dossier',
-          nodes: ['Active Medications Timeline', 'Verified Allergy Matrix', 'Prescriber DEA Notes']
-        },
-        {
-          title: 'POS & Verification Desk',
-          nodes: ['Barcode Handshake Scanner', 'Tiered Contraindication Inspector', 'Copay & Split-Billing']
-        }
-      ],
-      userFlow: [
-        {
-          step: '1. Intake & Barcode Scan',
-          action: 'Pharmacist scans barcode on incoming prescription script.',
-          outcome: 'Patient clinical dossier loads instantly with highlighted allergy flags.'
-        },
-        {
-          step: '2. Interaction Audit',
-          action: 'System evaluates newly prescribed medication against active patient history.',
-          outcome: 'Tiered warning banner indicates mild food interaction without modal interruptions.'
-        },
-        {
-          step: '3. Verification & Handshake',
-          action: 'Pharmacist scans physical medication bottle.',
-          outcome: 'NDC number matches digital script; checkout terminal automatically readies copay receipt.'
-        }
-      ],
-      wireframes: [
-        {
-          title: 'High-Density Table Ergonomics',
-          description: 'Tested 8px baseline grids with zebra striping and sticky column headers for rapid row scanning.',
-          annotations: ['Fixed NDC code column', 'Glanceable pill count indicator', 'Inline status pill']
-        },
-        {
-          title: 'Non-Modal Alert Banners',
-          description: 'Replaced intrusive modal dialogs with persistent contextual warning cards embedded directly above medication tables.',
-          annotations: ['Color-coded severity tags', 'One-click clinical rationale drawer']
-        }
-      ],
-      visualDesignSystem: {
-        colorTokens: [
-          { name: 'Clinical Teal', hex: '#00BFA5', usage: 'Primary brand, successful dispense confirmations' },
-          { name: 'Contraindication Red', hex: '#E53935', usage: 'Critical drug-allergy hard stops and warnings' },
-          { name: 'Caution Amber', hex: '#FFB300', usage: 'Moderate interaction notes and refill reviews' },
-          { name: 'Sterile Slate', hex: '#1E293B', usage: 'High contrast table headers and readable typography' }
-        ],
-        typographyScale: [
-          { level: 'Dossier Title', spec: 'Inter 24px / SemiBold', usage: 'Patient names and major section headers' },
-          { level: 'Clinical Spec', spec: 'JetBrains Mono 13px / Medium', usage: 'NDC codes, dosages, lot numbers' },
-          { level: 'Table Row', spec: 'Inter 13px / Regular 1.4line-height', usage: 'Prescription listings and directions' }
-        ],
-        componentHighlights: [
-          '3-Tier Clinical Alert Banner Component',
-          'Barcode Handshake Verification Widget',
-          'High-Density Medication Data Table with Sticky Controls',
-          'Patient Medication Interaction Inspector'
-        ]
-      },
-      finalScreens: [
-        {
-          title: 'Single-Screen Clinical Dossier',
-          description: 'Consolidated view displaying patient history, insurance co-pay, active allergies, and pending refills in a single ergonomic screen.',
-          badge: 'POS Dashboard'
-        },
-        {
-          title: 'Tiered Interaction Inspector',
-          description: 'Intelligent warning drawer highlighting drug interactions with clear medical evidence and severity categorization.',
-          badge: 'Clinical Safety'
-        },
-        {
-          title: 'Batch Dispense & Barcode Handshake',
-          description: 'Rapid physical-to-digital validation tool ensuring 100% correct medication delivery at the retail counter.',
-          badge: 'POS Checkout'
-        }
-      ],
-      interactionDetails: [
-        'Keyboard shortcut (Cmd+Enter) for instantaneous verified prescription sign-off.',
-        'Tactile visual flash confirming exact NDC barcode match.',
-        'Expandable drawer for detailed pharmacological mechanism of action notes.'
-      ],
-      learnings: [
-        'In healthcare and POS environments, speed and safety are not opposing forces—thoughtful information architecture enables both.',
-        'Eliminating modal fatigue through embedded warning tiers directly prevents catastrophic dispensing errors.',
-        'Token-based color design ensures effortless adaptability across daytime counter light and dark dispensing rooms.'
-      ]
-    }
-  },
-  {
-    id: 'fitstart',
-    number: '04',
-    title: 'FitStart — Responsive Fitness App Website',
-    category: 'UI/UX Design · Responsive Web Design',
-    tagline: 'Engaging, Accessible, and Seamless Fitness Across Devices',
-    description: 'A responsive fitness website designed to deliver an engaging, accessible, and seamless fitness experience across devices.',
-    behanceUrl: 'https://www.behance.net/gallery/249361435/FitStart-Responsive-Fitness-App-Website',
-    techStack: ['Figma', 'Responsive Web Design', 'Design Systems', 'Interaction Design', 'CSS Grid'],
-    status: 'Case Study',
-    highlights: [
-      'Responsive layouts',
-      'User-centered design',
-      'Visual hierarchy',
-      'Component design',
-      'Habit tracking mechanics'
-    ],
-    dimensions: { width: 920, height: 620 },
-    canvasPosition: { x: 2480, y: 780 },
-    accentColor: '#9747FF',
+    canvasPosition: { x: 3480, y: 120 },
+    accentColor: '#FC8019',
     logoUrl: undefined,
-    previewType: 'fitstart',
+    previewType: 'swiggy',
     caseStudy: {
-      overview: 'FitStart is a responsive fitness website and web application designed to deliver an engaging, accessible, and seamless fitness experience across desktop, tablet, and mobile devices. It simplifies workout discovery, routine planning, and streak tracking with clean typographic hierarchy and thumb-friendly touch targets.',
-      role: 'UI/UX & Responsive Web Designer',
-      duration: '2.5 Months',
-      team: 'Solo Project',
-      deliverables: ['Responsive Web UI', 'Component Library', 'Design Tokens', 'User Usability Test Matrix'],
-      problemStatement: 'Most fitness applications overwhelm novices with dense exercise scientific metrics, paywalled routines, and rigid calendar schedules, causing 64% of new gym-goers to abandon their routine within 3 weeks.',
+      overview: 'UX Laws Behind Swiggy is a rigorous product audit that decodes India’s premier food ordering interface through behavioral science and human factors psychology. By mapping real user checkout paths against established cognitive heuristics, this study reveals how micro-adjustments in layout hierarchy, information chunking, and tactile feedback dramatically reduce decision paralysis during peak dining rushes.',
+      role: 'Lead UX Researcher & Behavioral Analyst',
+      duration: '2 Months',
+      team: 'Independent Heuristic Teardown',
+      deliverables: ['Heuristic Evaluation Audit', 'Cognitive Load Map', '10 UX Laws Breakdown Deck', 'Checkout Redesign Prototype'],
+      problemStatement: 'Hungry consumers face extreme cognitive friction when choosing meals from hundreds of restaurant menus. Without strict architectural constraints, menu paralysis leads to cart abandonment rates exceeding 45% during lunch and dinner ordering windows.',
       goals: [
-        'Create an approachable workout discovery system with clear visual difficulty ratings.',
-        'Design a 100% fluid responsive grid adapting smoothly from 360px phones to 4K monitors.',
-        'Build a zero-friction streak tracker that rewards consistency over intensity.',
-        'Implement high-accessibility color contrast and typography for readable gym floor usage.'
+        'Analyze Swiggy’s mobile ordering journey against 10 foundational UX and cognitive psychology laws.',
+        'Pinpoint friction points in dish customization, add-on bundling, and cart review.',
+        'Propose wireframe solutions to minimize choice overload using progressive disclosure and smart chunking.',
+        'Formulate practical design guidelines for high-velocity consumer e-commerce checkout funnels.'
       ],
       researchInsights: [
         {
-          stat: '72%',
-          label: 'Drop-off Due to Complexity',
-          takeaway: 'Beginners cited intimidating rep/weight spreadsheets as their reason for quitting fitness apps.'
+          stat: '38%',
+          label: 'Hick’s Law Friction',
+          takeaway: 'Uncategorized restaurant menus with over 20 top-level items increase decision time by 3.8x compared to grouped menus.'
         },
         {
-          stat: '89%',
-          label: 'Prefer Video Quick Previews',
-          takeaway: 'Users prioritized 5-second looping exercise form previews over lengthy written guides.'
+          stat: '52%',
+          label: 'Fitts’s Law Precision',
+          takeaway: 'Bottom-anchored sticky "View Cart" CTA within thumb-reach yields 52% faster checkout initiation than top buttons.'
         },
         {
-          stat: '98%',
-          label: 'Mobile-First Gym Usage',
-          takeaway: 'Even desktop users relied primarily on mobile web when actually on the gym floor.'
+          stat: '7±2',
+          label: 'Miller’s Law Chunking',
+          takeaway: 'Limiting curated collections (e.g. "Guiltfree", "Gourmet") to 5-7 items prevents cognitive exhaustion.'
         }
       ],
       personas: [
         {
-          name: 'Marcus Vance',
-          role: 'Junior Software Engineer & Gym Beginner',
-          quote: 'I want to work out 3 times a week, but walking into the weight room without a clear plan makes me feel anxious.',
+          name: 'Arjun Menon',
+          role: 'Time-Constrained Tech Professional',
+          quote: 'I have a 30-minute lunch gap between meetings. If choosing my meal takes more than 4 minutes of scrolling, I give up.',
           painPoints: [
-            'Not knowing which machines target which muscle groups',
-            'Complicated gym tracking apps requiring manual weight entries per set',
-            'Feeling intimidated by advanced bodybuilding jargon'
+            'Overwhelming restaurant filter menus with redundant sorting toggles',
+            'Hidden customization modals forcing repetitive clicks for spice levels',
+            'Vague coupon application logic that resets when modifying items'
           ],
           goals: [
-            'Simple 30-minute full-body routines with zero guesswork',
-            'One-tap completion logging',
-            'Encouraging streak tracker celebrating small consistency milestones'
+            'One-tap reordering from recent favorite restaurants',
+            'Clear price breakdown that updates in real time with coupon discounts',
+            'Prominent dietary indicators (Veg/Non-Veg) that never get obscured'
           ]
         }
       ],
       informationArchitecture: [
         {
-          title: 'Exercise Discovery Engine',
-          nodes: ['Muscle Group Anatomy Selector', 'Equipment Availability Filter', 'Time Budget (15/30/45m)']
+          title: 'Home Discovery Engine',
+          nodes: ['Location Sensor Bar', 'Personalized Carousel', 'Categorical Clusters', 'Dietary Quick Filter']
         },
         {
-          title: 'Active Session Companion',
-          nodes: ['Rest Timer HUD', 'Looping Form Demonstrations', 'Reps & Weight Incrementors']
+          title: 'Menu & Customization Flow',
+          nodes: ['Collapsible Section Headers', 'Bestseller Spotlights', 'Customization Bottom Sheet']
         },
         {
-          title: 'Habit & Growth Dashboard',
-          nodes: ['Weekly Streak Rings', 'Volume Milestones', 'Personal Best Hall of Fame']
+          title: 'Cart & Delivery Funnel',
+          nodes: ['Order Bill Summary', 'Tip Courier Selector', 'Address Confirm Drawer', 'Live Telemetry HUD']
         }
       ],
       userFlow: [
         {
-          step: '1. Rapid Intake',
-          action: 'User chooses "Dumbbells Only" and "30 Minutes Available".',
-          outcome: 'Curated 4-exercise routine generated instantly without registration walls.'
+          step: '1. Intent & Search',
+          action: 'User opens Swiggy with intent to order lunch under 20 minutes.',
+          outcome: 'Home feed presents "Top Rated Near You" leveraging the Serial Position Effect.'
         },
         {
-          step: '2. Live Routine',
-          action: 'User taps "Start Workout". Screen locks into High-Contrast Active Mode.',
-          outcome: 'Full-screen rest countdown triggers automatic audio chime on completion.'
+          step: '2. Meal Selection',
+          action: 'User selects Paneer Tikka Bowl; bottom sheet opens with pre-selected defaults.',
+          outcome: 'Default selection reduces cognitive effort via the Status Quo Bias.'
         },
         {
-          step: '3. Streak Celebration',
-          action: 'Session finished. User taps "Mark Complete".',
-          outcome: 'Dynamic confetti microinteraction celebrates 3-day weekly consistency goal.'
+          step: '3. Checkout & Payment',
+          action: 'User views cart with progress bar showing "Add ₹45 more for Free Delivery".',
+          outcome: 'The Goal Gradient Effect motivates completion with an immediate micro-reward.'
         }
       ],
       wireframes: [
         {
-          title: 'Responsive Breakpoint Matrix',
-          description: 'Engineered a modular 12-column desktop layout that collapses gracefully into a fluid single-column mobile experience.',
-          annotations: ['Sticky mobile bottom action bar', 'Expandable workout summary drawer']
+          title: 'Cart Summary Chunking Exploration',
+          description: 'Tested chunked billing breakdown vs single lump-sum row. Chunked itemization increased bill comprehension by 64%.',
+          annotations: ['Sticky thumb-accessible CTA', 'Visual coupon chip with instant discount feedback']
         },
         {
-          title: 'Visual Muscle Selector',
-          description: 'Interactive SVG anatomical map allowing users to tap chest, back, legs, or core to immediately filter exercises.',
-          annotations: ['Vector hotspot touch areas', 'Dynamic badge counter']
+          title: 'Menu Navigation Accordion',
+          description: 'Redesigned long multi-scroll menus into floating category pills that stick to the viewport header.',
+          annotations: ['Zero-lag category jump', 'Visual count badge per cuisine category']
         }
       ],
       visualDesignSystem: {
         colorTokens: [
-          { name: 'Vibrant Violet', hex: '#9747FF', usage: 'Primary brand, streak badges, active buttons' },
-          { name: 'Pulse Coral', hex: '#F24E1E', usage: 'High intensity cardio indicators and timer alert' },
-          { name: 'Pure Obsidian', hex: '#121212', usage: 'Active workout dark mode contrast base' },
-          { name: 'Crisp Silver', hex: '#E5E7EB', usage: 'Dividers and unselected workout chip outlines' }
+          { name: 'Swiggy Orange', hex: '#FC8019', usage: 'Primary brand, primary action buttons, live status' },
+          { name: 'Veg Emerald', hex: '#0F8A65', usage: 'Pure vegetarian indicators and dietary safety' },
+          { name: 'Charcoal Core', hex: '#1C1C24', usage: 'Primary typography, headings, elevated surfaces' },
+          { name: 'Soft Surface', hex: '#F4F5F7', usage: 'Background containers and card divider tracks' }
         ],
         typographyScale: [
-          { level: 'Timer Big', spec: 'JetBrains Mono 48px / Bold', usage: 'Rest countdown and set interval timer' },
-          { level: 'Title', spec: 'Inter 24px / SemiBold', usage: 'Exercise titles and program headers' },
-          { level: 'Body', spec: 'Inter 15px / Regular', usage: 'Execution instructions and form cues' }
+          { level: 'Display', spec: 'Inter 26px / Bold', usage: 'Restaurant names and hero titles' },
+          { level: 'Body', spec: 'Inter 14px / Regular', usage: 'Dish descriptions and allergen notes' },
+          { level: 'Pricing Spec', spec: 'JetBrains Mono 14px / SemiBold', usage: 'Bill totals, discount vouchers, delivery ETA' }
         ],
         componentHighlights: [
-          'Interactive Muscle Group SVG Filter',
-          'Audio-Synced Rest Timer Component',
-          'Responsive Routine Card with difficulty tags',
-          'Gamified Weekly Streak Ring'
+          'Sticky Bottom Navigation HUD with Thumb Reach zone',
+          'Dietary Pill Filter with high-contrast icon badges',
+          'Goal Gradient Progress Bar for delivery threshold bonuses',
+          'Accordion Menu Section with smooth spring expansion'
         ]
       },
       finalScreens: [
         {
-          title: 'Personalized Workout Explorer',
-          description: 'Filter routines by equipment, muscle group, and session length with instant visual previews and difficulty badges.',
-          badge: 'Desktop & Mobile'
+          title: 'Hick’s Law Menu Navigation',
+          description: 'Streamlined category navigator grouping 80+ dishes into 5 glanceable sections with sticky header pills.',
+          badge: 'Heuristic Teardown'
         },
         {
-          title: 'High-Contrast Active Workout Screen',
-          description: 'Zero-distraction timer interface designed for sweat-covered fingers and readable from 5 feet away on a gym bench.',
-          badge: 'Active Mode'
+          title: 'Fitts’s Law Ergonomic Cart Tray',
+          description: 'Full-width bottom sheet placing "Proceed to Pay" directly under the natural resting position of the user’s thumb.',
+          badge: 'Ergonomics'
         },
         {
-          title: 'Progressive Habit & Streak Dashboard',
-          description: 'Visual consistency tracker celebrating workouts completed without judgmental calorie shaming.',
-          badge: 'Retention'
+          title: 'Goal Gradient Free Delivery Progressor',
+          description: 'Dynamic visual meter that rewards users for completing minimal order thresholds, reducing cart abandonment.',
+          badge: 'Conversion'
         }
       ],
       interactionDetails: [
-        'Elastic pull-down rest timer incrementer (+15s / +30s).',
-        'Satisfying checkmark stamp animation upon completing each workout set.',
-        'Smooth CSS grid reflow across responsive window resizing.'
+        'Haptic tap feedback when toggling Veg/Non-Veg filter chips.',
+        'Spring animation on bottom cart bar when items are added.',
+        'Confetti microinteraction when a coupon discount is successfully unlocked.'
       ],
       learnings: [
-        'Responsive design is not merely scaling down desktop cards; it requires rethinking touch targets and context of use.',
-        'Beginners respond far better to consistency gamification than raw performance metrics.',
-        'Semantic HTML and CSS clamp() units make typography effortlessly resilient.'
+        'UX laws are not theoretical dogmas—they are practical diagnostic tools for identifying conversion leakage.',
+        'Every extra decision forced onto a hungry user exponentially degrades their patience and loyalty.',
+        'Designing for one-handed thumb reach is the single most impactful ergonomic improvement in mobile e-commerce.'
       ]
     }
   }

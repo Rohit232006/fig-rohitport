@@ -298,6 +298,66 @@ export const ProjectFrame: React.FC<ProjectFrameProps> = ({
           </div>
         );
 
+      case 'swiggy':
+        return (
+          <div className="h-full bg-[#181411] text-white p-4 rounded-xl flex flex-col justify-between font-sans border border-orange-950/60 relative overflow-hidden group/swiggy">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-orange-950/60 pb-2 z-10 bg-[#181411]/90 backdrop-blur-xs">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FC8019]" />
+                <span className="text-xs font-semibold text-orange-200">UX Laws Behind Swiggy</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] bg-[#FC8019]/20 text-[#FC8019] px-2 py-0.5 rounded-full font-medium">
+                  Heuristic Audit
+                </span>
+                <span className="text-[10px] bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-full font-mono">
+                  Cognitive Ergonomics
+                </span>
+              </div>
+            </div>
+
+            {/* Middle: Heuristic Audit Visual Preview */}
+            <div className="my-2 flex-1 rounded-lg bg-zinc-950 p-4 border border-zinc-900 flex flex-col justify-between relative overflow-hidden">
+              <div className="grid grid-cols-2 gap-3 z-10">
+                <div className="bg-[#211812] border border-orange-900/40 p-3 rounded-lg">
+                  <span className="text-[10px] font-mono text-[#FC8019] block">LAW 01 / HICK’S LAW</span>
+                  <h4 className="text-xs font-bold text-white mt-1">Categorical Chunking</h4>
+                  <p className="text-[10px] text-zinc-400 mt-1">Reduced 80+ unstructured items into 5 sticky category groups, cutting decision latency by 3.8x.</p>
+                </div>
+                <div className="bg-[#211812] border border-orange-900/40 p-3 rounded-lg">
+                  <span className="text-[10px] font-mono text-[#FC8019] block">LAW 02 / FITTS’S LAW</span>
+                  <h4 className="text-xs font-bold text-white mt-1">Thumb-Zone Ergonomics</h4>
+                  <p className="text-[10px] text-zinc-400 mt-1">Anchored cart verification tray to lower 40% thumb arc, speeding up checkout by 52%.</p>
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-3 grid grid-cols-3 gap-2">
+                <div className="bg-zinc-900/90 p-2 rounded border border-zinc-800 text-center">
+                  <span className="text-[11px] font-bold text-orange-400 block font-mono">Miller's 7±2</span>
+                  <span className="text-[9px] text-zinc-400">Curated Clusters</span>
+                </div>
+                <div className="bg-zinc-900/90 p-2 rounded border border-zinc-800 text-center">
+                  <span className="text-[11px] font-bold text-emerald-400 block font-mono">Goal Gradient</span>
+                  <span className="text-[9px] text-zinc-400">Micro-Milestone Progress</span>
+                </div>
+                <div className="bg-zinc-900/90 p-2 rounded border border-zinc-800 text-center">
+                  <span className="text-[11px] font-bold text-amber-400 block font-mono">Status Quo</span>
+                  <span className="text-[9px] text-zinc-400">Smart Default Add-ons</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom */}
+            <div className="flex items-center justify-between pt-2 border-t border-orange-950/60 text-[11px] text-zinc-400 z-10">
+              <span className="truncate max-w-[65%]">Deconstructing food delivery ergonomics through behavioral science.</span>
+              <span className="text-xs font-medium text-orange-400">
+                UX Research • Heuristic Audit
+              </span>
+            </div>
+          </div>
+        );
+
       default:
         return null;
     }

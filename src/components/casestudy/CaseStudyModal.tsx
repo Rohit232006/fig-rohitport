@@ -62,14 +62,14 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#4B5563] dark:text-[#A0A0A0] hover:text-[#0D99FF] bg-[#F3F4F6] dark:bg-[#27272A] px-3 py-1.5 rounded-lg transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-[#4B5563] dark:text-[#A0A0A0] hover:text-[#0D99FF] bg-[#F3F4F6] dark:bg-[#27272A] px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
             >
               <ArrowLeft size={14} />
-              <span>Back to Canvas</span>
+              <span>Back to Projects</span>
             </button>
             <div className="h-4 w-px bg-gray-200 dark:bg-zinc-700 hidden sm:block" />
             <span className="text-xs text-gray-400 font-mono hidden sm:inline">
-              Canvas / Projects / {project.title}
+              Work / {project.title}
             </span>
           </div>
 
@@ -515,10 +515,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           <footer className="pt-8 border-t border-gray-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <button
               onClick={onClose}
-              className="w-full sm:w-auto bg-[#0D99FF] hover:bg-[#0085EB] text-white font-semibold text-xs px-6 py-2.5 rounded-xl shadow-sm transition-colors flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-[#0D99FF] hover:bg-[#0085EB] text-white font-semibold text-xs px-6 py-2.5 rounded-xl shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <ArrowLeft size={14} />
-              <span>Return to Canvas Workspace</span>
+              <span>Return to Projects</span>
             </button>
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
