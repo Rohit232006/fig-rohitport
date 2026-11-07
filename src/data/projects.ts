@@ -2,168 +2,8 @@ import { Project } from '../types';
 
 export const projectsData: Project[] = [
   {
-    id: 'pharmaflow',
-    number: '01',
-    title: 'Pharmaflow — Pharmacy POS (SaaS Design)',
-    category: 'UI/UX Design · SaaS Dashboard',
-    tagline: 'High-Density Clinical Safety Meets Rapid Retail POS Operations',
-    description: 'A pharmacy point-of-sale experience focused on simplifying pharmacy operations through a clear, intuitive interface.',
-    behanceUrl: 'https://www.behance.net/gallery/252542077/Pharmaflow-Pharmacy-POS-(-SAAS-Design-)',
-    techStack: ['Figma', 'SaaS Design', 'Design Systems', 'Healthcare UX', 'WCAG AAA'],
-    status: 'Case Study',
-    highlights: [
-      'Dispensing error prevention',
-      'High-density data tables',
-      'Tiered clinical warnings',
-      'Barcode scan validation',
-      'Tokens Studio architecture'
-    ],
-    dimensions: { width: 920, height: 620 },
-    canvasPosition: { x: 1480, y: 120 },
-    accentColor: '#00BFA5',
-    logoUrl: '/images/pharmaflow-logo.png',
-    previewType: 'pharmaflow',
-    caseStudy: {
-      overview: 'Pharmaflow is a pharmacy point-of-sale and prescription management SaaS dashboard designed to eliminate dispensing errors in high-velocity retail dispensaries. By restructuring dense clinical records into an intuitive single-screen dossier with high-contrast alert hierarchies, Pharmaflow balances rapid counter checkout with uncompromising patient safety.',
-      role: 'UI/UX & Product Designer',
-      duration: '3 Months',
-      team: 'Independent SaaS Case Study',
-      deliverables: ['SaaS Dashboard Design System', 'Prescription Verification Flow', 'Tokens Studio Spec', 'WCAG AAA Color System'],
-      problemStatement: 'Pharmacists verify over 250 prescriptions daily under severe time constraints. Legacy pharmacy software inundates staff with generic modal popups for trivial warnings, creating alert fatigue where critical contraindications and dangerous drug interactions are reflexively dismissed.',
-      goals: [
-        'Eradicate dispensing error traps through a clear, 3-tier clinical warning hierarchy.',
-        'Create a high-density, single-screen patient dossier consolidating history, refill eligibility, and copays without cognitive clutter.',
-        'Accelerate POS checkout speed with instant barcode verification handshakes.',
-        'Implement an accessible design system with WCAG AAA contrast tokens for bright retail and dark ambient dispensary lighting.'
-      ],
-      researchInsights: [
-        {
-          stat: '250+',
-          label: 'Prescriptions Per Shift',
-          takeaway: 'High dispensing volume requires zero-friction keyboard shortcuts and glanceable patient history.'
-        },
-        {
-          stat: '68%',
-          label: 'Alert Fatigue Rate',
-          takeaway: 'Legacy systems treat minor vitamin interactions with the same visual urgency as severe allergy alerts.'
-        },
-        {
-          stat: '3-Tier',
-          label: 'Warning Architecture',
-          takeaway: 'Categorizing alerts into Ambient, Review, and Hard-Stop reduces accidental dismissal by over 80%.'
-        }
-      ],
-      personas: [
-        {
-          name: 'David Miller, PharmD',
-          role: 'Lead Retail Pharmacist',
-          quote: 'During peak evening rush, I need to verify dosages, check drug-drug interactions, and bill insurance in under 90 seconds without risking patient health.',
-          painPoints: [
-            'Alert fatigue from constant popups for harmless supplements',
-            'Fragmented screens requiring 6 clicks between inventory and patient allergies',
-            'Cluttered tables with low contrast that strain eyes during 10-hour shifts'
-          ],
-          goals: [
-            'Glanceable patient dossier with prominent allergy flags',
-            'Seamless barcode verification linking physical bottle to digital record',
-            'Fast keyboard-only POS shortcuts for refill approvals'
-          ]
-        }
-      ],
-      informationArchitecture: [
-        {
-          title: 'Prescription Queue HUD',
-          nodes: ['Urgent Staging Rack', 'Insurance Adjudication Status', 'Ready for Dispense Bin']
-        },
-        {
-          title: 'Patient Clinical Dossier',
-          nodes: ['Active Medications Timeline', 'Verified Allergy Matrix', 'Prescriber DEA Notes']
-        },
-        {
-          title: 'POS & Verification Desk',
-          nodes: ['Barcode Handshake Scanner', 'Tiered Contraindication Inspector', 'Copay & Split-Billing']
-        }
-      ],
-      userFlow: [
-        {
-          step: '1. Intake & Barcode Scan',
-          action: 'Pharmacist scans barcode on incoming prescription script.',
-          outcome: 'Patient clinical dossier loads instantly with highlighted allergy flags.'
-        },
-        {
-          step: '2. Interaction Audit',
-          action: 'System evaluates newly prescribed medication against active patient history.',
-          outcome: 'Tiered warning banner indicates mild food interaction without modal interruptions.'
-        },
-        {
-          step: '3. Verification & Handshake',
-          action: 'Pharmacist scans physical medication bottle.',
-          outcome: 'NDC number matches digital script; checkout terminal automatically readies copay receipt.'
-        }
-      ],
-      wireframes: [
-        {
-          title: 'High-Density Table Ergonomics',
-          description: 'Tested 8px baseline grids with zebra striping and sticky column headers for rapid row scanning.',
-          annotations: ['Fixed NDC code column', 'Glanceable pill count indicator', 'Inline status pill']
-        },
-        {
-          title: 'Non-Modal Alert Banners',
-          description: 'Replaced intrusive modal dialogs with persistent contextual warning cards embedded directly above medication tables.',
-          annotations: ['Color-coded severity tags', 'One-click clinical rationale drawer']
-        }
-      ],
-      visualDesignSystem: {
-        colorTokens: [
-          { name: 'Clinical Teal', hex: '#00BFA5', usage: 'Primary brand, successful dispense confirmations' },
-          { name: 'Contraindication Red', hex: '#E53935', usage: 'Critical drug-allergy hard stops and warnings' },
-          { name: 'Caution Amber', hex: '#FFB300', usage: 'Moderate interaction notes and refill reviews' },
-          { name: 'Sterile Slate', hex: '#1E293B', usage: 'High contrast table headers and readable typography' }
-        ],
-        typographyScale: [
-          { level: 'Dossier Title', spec: 'Inter 24px / SemiBold', usage: 'Patient names and major section headers' },
-          { level: 'Clinical Spec', spec: 'JetBrains Mono 13px / Medium', usage: 'NDC codes, dosages, lot numbers' },
-          { level: 'Table Row', spec: 'Inter 13px / Regular 1.4line-height', usage: 'Prescription listings and directions' }
-        ],
-        componentHighlights: [
-          '3-Tier Clinical Alert Banner Component',
-          'Barcode Handshake Verification Widget',
-          'High-Density Medication Data Table with Sticky Controls',
-          'Patient Medication Interaction Inspector'
-        ]
-      },
-      finalScreens: [
-        {
-          title: 'Single-Screen Clinical Dossier',
-          description: 'Consolidated view displaying patient history, insurance co-pay, active allergies, and pending refills in a single ergonomic screen.',
-          badge: 'POS Dashboard'
-        },
-        {
-          title: 'Tiered Interaction Inspector',
-          description: 'Intelligent warning drawer highlighting drug interactions with clear medical evidence and severity categorization.',
-          badge: 'Clinical Safety'
-        },
-        {
-          title: 'Batch Dispense & Barcode Handshake',
-          description: 'Rapid physical-to-digital validation tool ensuring 100% correct medication delivery at the retail counter.',
-          badge: 'POS Checkout'
-        }
-      ],
-      interactionDetails: [
-        'Keyboard shortcut (Cmd+Enter) for instantaneous verified prescription sign-off.',
-        'Tactile visual flash confirming exact NDC barcode match.',
-        'Expandable drawer for detailed pharmacological mechanism of action notes.'
-      ],
-      learnings: [
-        'In healthcare and POS environments, speed and safety are not opposing forces—thoughtful information architecture enables both.',
-        'Eliminating modal fatigue through embedded warning tiers directly prevents catastrophic dispensing errors.',
-        'Token-based color design ensures effortless adaptability across daytime counter light and dark dispensing rooms.'
-      ]
-    }
-  },
-  {
     id: 'agenticos',
-    number: '02',
+    number: '01',
     title: 'Agentic OS – Where AI Agents Meet Productivity',
     category: 'AI Productivity Platform · UI/UX Design',
     tagline: 'Where AI Agents Meet Productivity',
@@ -339,7 +179,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 'lastmile',
-    number: '03',
+    number: '02',
     title: 'Last Mile — Consumer Delivery Experience App',
     category: 'Logistics & Delivery Experience · UX/UI Case Study',
     tagline: 'Making Waiting Feel Shorter',
@@ -508,6 +348,166 @@ export const projectsData: Project[] = [
         'Perceived waiting time is significantly reduced when users are shown why a delay is occurring rather than just a numeric ETA.',
         'Designing for dual user personas (customer vs. courier) highlighted critical empathy gaps in mainstream logistics apps.',
         'High contrast outdoors is not an aesthetic choice—it is a safety and usability requirement.'
+      ]
+    }
+  },
+  {
+    id: 'pharmaflow',
+    number: '03',
+    title: 'Pharmaflow — Pharmacy POS (SaaS Design)',
+    category: 'UI/UX Design · SaaS Dashboard',
+    tagline: 'High-Density Clinical Safety Meets Rapid Retail POS Operations',
+    description: 'A pharmacy point-of-sale experience focused on simplifying pharmacy operations through a clear, intuitive interface.',
+    behanceUrl: 'https://www.behance.net/gallery/252542077/Pharmaflow-Pharmacy-POS-(-SAAS-Design-)',
+    techStack: ['Figma', 'SaaS Design', 'Design Systems', 'Healthcare UX', 'WCAG AAA'],
+    status: 'Case Study',
+    highlights: [
+      'Dispensing error prevention',
+      'High-density data tables',
+      'Tiered clinical warnings',
+      'Barcode scan validation',
+      'Tokens Studio architecture'
+    ],
+    dimensions: { width: 920, height: 620 },
+    canvasPosition: { x: 1480, y: 120 },
+    accentColor: '#00BFA5',
+    logoUrl: '/images/pharmaflow-logo.png',
+    previewType: 'pharmaflow',
+    caseStudy: {
+      overview: 'Pharmaflow is a pharmacy point-of-sale and prescription management SaaS dashboard designed to eliminate dispensing errors in high-velocity retail dispensaries. By restructuring dense clinical records into an intuitive single-screen dossier with high-contrast alert hierarchies, Pharmaflow balances rapid counter checkout with uncompromising patient safety.',
+      role: 'UI/UX & Product Designer',
+      duration: '3 Months',
+      team: 'Independent SaaS Case Study',
+      deliverables: ['SaaS Dashboard Design System', 'Prescription Verification Flow', 'Tokens Studio Spec', 'WCAG AAA Color System'],
+      problemStatement: 'Pharmacists verify over 250 prescriptions daily under severe time constraints. Legacy pharmacy software inundates staff with generic modal popups for trivial warnings, creating alert fatigue where critical contraindications and dangerous drug interactions are reflexively dismissed.',
+      goals: [
+        'Eradicate dispensing error traps through a clear, 3-tier clinical warning hierarchy.',
+        'Create a high-density, single-screen patient dossier consolidating history, refill eligibility, and copays without cognitive clutter.',
+        'Accelerate POS checkout speed with instant barcode verification handshakes.',
+        'Implement an accessible design system with WCAG AAA contrast tokens for bright retail and dark ambient dispensary lighting.'
+      ],
+      researchInsights: [
+        {
+          stat: '250+',
+          label: 'Prescriptions Per Shift',
+          takeaway: 'High dispensing volume requires zero-friction keyboard shortcuts and glanceable patient history.'
+        },
+        {
+          stat: '68%',
+          label: 'Alert Fatigue Rate',
+          takeaway: 'Legacy systems treat minor vitamin interactions with the same visual urgency as severe allergy alerts.'
+        },
+        {
+          stat: '3-Tier',
+          label: 'Warning Architecture',
+          takeaway: 'Categorizing alerts into Ambient, Review, and Hard-Stop reduces accidental dismissal by over 80%.'
+        }
+      ],
+      personas: [
+        {
+          name: 'David Miller, PharmD',
+          role: 'Lead Retail Pharmacist',
+          quote: 'During peak evening rush, I need to verify dosages, check drug-drug interactions, and bill insurance in under 90 seconds without risking patient health.',
+          painPoints: [
+            'Alert fatigue from constant popups for harmless supplements',
+            'Fragmented screens requiring 6 clicks between inventory and patient allergies',
+            'Cluttered tables with low contrast that strain eyes during 10-hour shifts'
+          ],
+          goals: [
+            'Glanceable patient dossier with prominent allergy flags',
+            'Seamless barcode verification linking physical bottle to digital record',
+            'Fast keyboard-only POS shortcuts for refill approvals'
+          ]
+        }
+      ],
+      informationArchitecture: [
+        {
+          title: 'Prescription Queue HUD',
+          nodes: ['Urgent Staging Rack', 'Insurance Adjudication Status', 'Ready for Dispense Bin']
+        },
+        {
+          title: 'Patient Clinical Dossier',
+          nodes: ['Active Medications Timeline', 'Verified Allergy Matrix', 'Prescriber DEA Notes']
+        },
+        {
+          title: 'POS & Verification Desk',
+          nodes: ['Barcode Handshake Scanner', 'Tiered Contraindication Inspector', 'Copay & Split-Billing']
+        }
+      ],
+      userFlow: [
+        {
+          step: '1. Intake & Barcode Scan',
+          action: 'Pharmacist scans barcode on incoming prescription script.',
+          outcome: 'Patient clinical dossier loads instantly with highlighted allergy flags.'
+        },
+        {
+          step: '2. Interaction Audit',
+          action: 'System evaluates newly prescribed medication against active patient history.',
+          outcome: 'Tiered warning banner indicates mild food interaction without modal interruptions.'
+        },
+        {
+          step: '3. Verification & Handshake',
+          action: 'Pharmacist scans physical medication bottle.',
+          outcome: 'NDC number matches digital script; checkout terminal automatically readies copay receipt.'
+        }
+      ],
+      wireframes: [
+        {
+          title: 'High-Density Table Ergonomics',
+          description: 'Tested 8px baseline grids with zebra striping and sticky column headers for rapid row scanning.',
+          annotations: ['Fixed NDC code column', 'Glanceable pill count indicator', 'Inline status pill']
+        },
+        {
+          title: 'Non-Modal Alert Banners',
+          description: 'Replaced intrusive modal dialogs with persistent contextual warning cards embedded directly above medication tables.',
+          annotations: ['Color-coded severity tags', 'One-click clinical rationale drawer']
+        }
+      ],
+      visualDesignSystem: {
+        colorTokens: [
+          { name: 'Clinical Teal', hex: '#00BFA5', usage: 'Primary brand, successful dispense confirmations' },
+          { name: 'Contraindication Red', hex: '#E53935', usage: 'Critical drug-allergy hard stops and warnings' },
+          { name: 'Caution Amber', hex: '#FFB300', usage: 'Moderate interaction notes and refill reviews' },
+          { name: 'Sterile Slate', hex: '#1E293B', usage: 'High contrast table headers and readable typography' }
+        ],
+        typographyScale: [
+          { level: 'Dossier Title', spec: 'Inter 24px / SemiBold', usage: 'Patient names and major section headers' },
+          { level: 'Clinical Spec', spec: 'JetBrains Mono 13px / Medium', usage: 'NDC codes, dosages, lot numbers' },
+          { level: 'Table Row', spec: 'Inter 13px / Regular 1.4line-height', usage: 'Prescription listings and directions' }
+        ],
+        componentHighlights: [
+          '3-Tier Clinical Alert Banner Component',
+          'Barcode Handshake Verification Widget',
+          'High-Density Medication Data Table with Sticky Controls',
+          'Patient Medication Interaction Inspector'
+        ]
+      },
+      finalScreens: [
+        {
+          title: 'Single-Screen Clinical Dossier',
+          description: 'Consolidated view displaying patient history, insurance co-pay, active allergies, and pending refills in a single ergonomic screen.',
+          badge: 'POS Dashboard'
+        },
+        {
+          title: 'Tiered Interaction Inspector',
+          description: 'Intelligent warning drawer highlighting drug interactions with clear medical evidence and severity categorization.',
+          badge: 'Clinical Safety'
+        },
+        {
+          title: 'Batch Dispense & Barcode Handshake',
+          description: 'Rapid physical-to-digital validation tool ensuring 100% correct medication delivery at the retail counter.',
+          badge: 'POS Checkout'
+        }
+      ],
+      interactionDetails: [
+        'Keyboard shortcut (Cmd+Enter) for instantaneous verified prescription sign-off.',
+        'Tactile visual flash confirming exact NDC barcode match.',
+        'Expandable drawer for detailed pharmacological mechanism of action notes.'
+      ],
+      learnings: [
+        'In healthcare and POS environments, speed and safety are not opposing forces—thoughtful information architecture enables both.',
+        'Eliminating modal fatigue through embedded warning tiers directly prevents catastrophic dispensing errors.',
+        'Token-based color design ensures effortless adaptability across daytime counter light and dark dispensing rooms.'
       ]
     }
   }
