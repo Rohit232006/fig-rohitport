@@ -162,173 +162,14 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: 'fitstart',
-    number: '02',
-    title: 'FitStart — Responsive Fitness App Website',
-    category: 'UI/UX Design · Responsive Web Design',
-    tagline: 'Engaging, Accessible, and Seamless Fitness Across Devices',
-    description: 'A responsive fitness website designed to deliver an engaging, accessible, and seamless fitness experience across devices.',
-    behanceUrl: 'https://www.behance.net/gallery/249361435/FitStart-Responsive-Fitness-App-Website',
-    techStack: ['Figma', 'Responsive Web Design', 'Design Systems', 'Interaction Design', 'CSS Grid'],
-    status: 'Case Study',
-    highlights: [
-      'Responsive layouts',
-      'User-centered design',
-      'Visual hierarchy',
-      'Component design',
-      'Habit tracking mechanics'
-    ],
-    dimensions: { width: 920, height: 620 },
-    canvasPosition: { x: 2480, y: 120 },
-    accentColor: '#9747FF',
-    logoUrl: undefined,
-    previewType: 'fitstart',
-    caseStudy: {
-      overview: 'FitStart is a responsive fitness website and web application designed to deliver an engaging, accessible, and seamless fitness experience across desktop, tablet, and mobile devices. It simplifies workout discovery, routine planning, and streak tracking with clean typographic hierarchy and thumb-friendly touch targets.',
-      role: 'UI/UX & Responsive Web Designer',
-      duration: '2.5 Months',
-      team: 'Solo Project',
-      deliverables: ['Responsive Web UI', 'Component Library', 'Design Tokens', 'User Usability Test Matrix'],
-      problemStatement: 'Most fitness applications overwhelm novices with dense exercise scientific metrics, paywalled routines, and rigid calendar schedules, causing 64% of new gym-goers to abandon their routine within 3 weeks.',
-      goals: [
-        'Create an approachable workout discovery system with clear visual difficulty ratings.',
-        'Design a 100% fluid responsive grid adapting smoothly from 360px phones to 4K monitors.',
-        'Build a zero-friction streak tracker that rewards consistency over intensity.',
-        'Implement high-accessibility color contrast and typography for readable gym floor usage.'
-      ],
-      researchInsights: [
-        {
-          stat: '72%',
-          label: 'Drop-off Due to Complexity',
-          takeaway: 'Beginners cited intimidating rep/weight spreadsheets as their reason for quitting fitness apps.'
-        },
-        {
-          stat: '89%',
-          label: 'Prefer Video Quick Previews',
-          takeaway: 'Users prioritized 5-second looping exercise form previews over lengthy written guides.'
-        },
-        {
-          stat: '98%',
-          label: 'Mobile-First Gym Usage',
-          takeaway: 'Even desktop users relied primarily on mobile web when actually on the gym floor.'
-        }
-      ],
-      personas: [
-        {
-          name: 'Marcus Vance',
-          role: 'Junior Software Engineer & Gym Beginner',
-          quote: 'I want to work out 3 times a week, but walking into the weight room without a clear plan makes me feel anxious.',
-          painPoints: [
-            'Not knowing which machines target which muscle groups',
-            'Complicated gym tracking apps requiring manual weight entries per set',
-            'Feeling intimidated by advanced bodybuilding jargon'
-          ],
-          goals: [
-            'Simple 30-minute full-body routines with zero guesswork',
-            'One-tap completion logging',
-            'Encouraging streak tracker celebrating small consistency milestones'
-          ]
-        }
-      ],
-      informationArchitecture: [
-        {
-          title: 'Exercise Discovery Engine',
-          nodes: ['Muscle Group Anatomy Selector', 'Equipment Availability Filter', 'Time Budget (15/30/45m)']
-        },
-        {
-          title: 'Active Session Companion',
-          nodes: ['Rest Timer HUD', 'Looping Form Demonstrations', 'Reps & Weight Incrementors']
-        },
-        {
-          title: 'Habit & Growth Dashboard',
-          nodes: ['Weekly Streak Rings', 'Volume Milestones', 'Personal Best Hall of Fame']
-        }
-      ],
-      userFlow: [
-        {
-          step: '1. Rapid Intake',
-          action: 'User chooses "Dumbbells Only" and "30 Minutes Available".',
-          outcome: 'Curated 4-exercise routine generated instantly without registration walls.'
-        },
-        {
-          step: '2. Live Routine',
-          action: 'User taps "Start Workout". Screen locks into High-Contrast Active Mode.',
-          outcome: 'Full-screen rest countdown triggers automatic audio chime on completion.'
-        },
-        {
-          step: '3. Streak Celebration',
-          action: 'Session finished. User taps "Mark Complete".',
-          outcome: 'Dynamic confetti microinteraction celebrates 3-day weekly consistency goal.'
-        }
-      ],
-      wireframes: [
-        {
-          title: 'Responsive Breakpoint Matrix',
-          description: 'Engineered a modular 12-column desktop layout that collapses gracefully into a fluid single-column mobile experience.',
-          annotations: ['Sticky mobile bottom action bar', 'Expandable workout summary drawer']
-        },
-        {
-          title: 'Visual Muscle Selector',
-          description: 'Interactive SVG anatomical map allowing users to tap chest, back, legs, or core to immediately filter exercises.',
-          annotations: ['Vector hotspot touch areas', 'Dynamic badge counter']
-        }
-      ],
-      visualDesignSystem: {
-        colorTokens: [
-          { name: 'Vibrant Violet', hex: '#9747FF', usage: 'Primary brand, streak badges, active buttons' },
-          { name: 'Pulse Coral', hex: '#F24E1E', usage: 'High intensity cardio indicators and timer alert' },
-          { name: 'Pure Obsidian', hex: '#121212', usage: 'Active workout dark mode contrast base' },
-          { name: 'Crisp Silver', hex: '#E5E7EB', usage: 'Dividers and unselected workout chip outlines' }
-        ],
-        typographyScale: [
-          { level: 'Timer Big', spec: 'JetBrains Mono 48px / Bold', usage: 'Rest countdown and set interval timer' },
-          { level: 'Title', spec: 'Inter 24px / SemiBold', usage: 'Exercise titles and program headers' },
-          { level: 'Body', spec: 'Inter 15px / Regular', usage: 'Execution instructions and form cues' }
-        ],
-        componentHighlights: [
-          'Interactive Muscle Group SVG Filter',
-          'Audio-Synced Rest Timer Component',
-          'Responsive Routine Card with difficulty tags',
-          'Gamified Weekly Streak Ring'
-        ]
-      },
-      finalScreens: [
-        {
-          title: 'Personalized Workout Explorer',
-          description: 'Filter routines by equipment, muscle group, and session length with instant visual previews and difficulty badges.',
-          badge: 'Desktop & Mobile'
-        },
-        {
-          title: 'High-Contrast Active Workout Screen',
-          description: 'Zero-distraction timer interface designed for sweat-covered fingers and readable from 5 feet away on a gym bench.',
-          badge: 'Active Mode'
-        },
-        {
-          title: 'Progressive Habit & Streak Dashboard',
-          description: 'Visual consistency tracker celebrating workouts completed without judgmental calorie shaming.',
-          badge: 'Retention'
-        }
-      ],
-      interactionDetails: [
-        'Elastic pull-down rest timer incrementer (+15s / +30s).',
-        'Satisfying checkmark stamp animation upon completing each workout set.',
-        'Smooth CSS grid reflow across responsive window resizing.'
-      ],
-      learnings: [
-        'Responsive design is not merely scaling down desktop cards; it requires rethinking touch targets and context of use.',
-        'Beginners respond far better to consistency gamification than raw performance metrics.',
-        'Semantic HTML and CSS clamp() units make typography effortlessly resilient.'
-      ]
-    }
-  },
-  {
     id: 'agenticos',
-    number: '03',
-    title: 'AgenticOS — AI Productivity Operating System',
+    number: '02',
+    title: 'AgenticOS — Where AI Agents Meet Productivity',
     category: 'AI Productivity Platform · UI/UX Design',
-    tagline: 'An Operating System for Autonomous Human-AI Workflows',
-    description: 'An AI-powered productivity operating system designed to simplify complex workflows and make autonomous AI interactions more transparent and intuitive.',
-    techStack: ['Figma', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    tagline: 'Where AI Agents Meet Productivity',
+    description: 'An AI-powered productivity operating system designed to bring intelligent agents, automation and productivity workflows together in one unified experience.',
+    behanceUrl: 'https://www.behance.net/gallery/257841389/AgenticOS-Where-AI-Agents-Meet-Productivity',
+    techStack: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS', 'Figma'],
     status: 'Case Study',
     highlights: [
       'Information architecture',
@@ -498,7 +339,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 'lastmile',
-    number: '04',
+    number: '03',
     title: 'Last Mile — Consumer Delivery Experience App',
     category: 'Logistics & Delivery Experience · UX/UI Case Study',
     tagline: 'Making Waiting Feel Shorter',
