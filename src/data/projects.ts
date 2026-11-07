@@ -164,7 +164,7 @@ export const projectsData: Project[] = [
   {
     id: 'agenticos',
     number: '02',
-    title: 'AgenticOS — Where AI Agents Meet Productivity',
+    title: 'Agentic OS – Where AI Agents Meet Productivity',
     category: 'AI Productivity Platform · UI/UX Design',
     tagline: 'Where AI Agents Meet Productivity',
     description: 'An AI-powered productivity operating system designed to bring intelligent agents, automation and productivity workflows together in one unified experience.',

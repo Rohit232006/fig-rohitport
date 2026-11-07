@@ -303,11 +303,19 @@ const ParallaxProjectCard: React.FC<{
     shouldReduceMotion ? [0, 0] : isOdd ? [20, -20] : [-15, 15]
   );
 
+  const handleCardClick = () => {
+    if (project.id === 'agenticos' && project.behanceUrl) {
+      window.open(project.behanceUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      onOpenCaseStudy(project);
+    }
+  };
+
   return (
     <motion.div
       ref={cardRef}
       style={{ y }}
-      onClick={() => onOpenCaseStudy(project)}
+      onClick={handleCardClick}
       className="bg-white dark:bg-[#202023] border border-gray-200 dark:border-zinc-800 hover:border-[#0D99FF] dark:hover:border-[#0D99FF] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-figma-card hover:shadow-figma-floating transition-all duration-300 cursor-pointer group flex flex-col justify-between relative overflow-hidden"
     >
       {/* Figma Frame Topbar */}
@@ -318,7 +326,7 @@ const ParallaxProjectCard: React.FC<{
             style={{ backgroundColor: project.accentColor }}
           />
           <span className="font-mono font-semibold text-xs text-gray-900 dark:text-white truncate">
-            #{project.number} · {project.title.split('—')[0].trim()}
+            #{project.number} · {project.title.split(/[—–-]/)[0].trim()}
           </span>
         </div>
         <span className="text-[10px] font-mono text-[#0D99FF] bg-[#0D99FF]/10 px-2 py-0.5 rounded font-medium flex-shrink-0">
